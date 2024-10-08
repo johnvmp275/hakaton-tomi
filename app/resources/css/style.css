@@ -1,0 +1,86 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: "Poppins", sans-serif;
+}
+
+
+.form-group{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    max-width: 350px;
+}
+
+.form-control{
+    outline: none;
+    border: 2px solid #c4c4c4;
+    width: 100%;
+    border-radius: 12px;
+}
+
+ li{
+    list-style: none;
+
+
+ }
+
+ a{
+    color: white;
+    border-radius: 8px;
+ }
+
+ .navbar{
+   display:flex;
+   justify-content: space-between;
+   padding: 0 24px;
+   flex-direction: column;
+   max-width: 360px;
+   height: 100dvh;
+   background-color: #303F52;
+   min-width: 200px;
+ }
+
+ .nav-menu{
+   display: flex;
+   gap: 24px;
+   z-index: 9999;
+   flex-direction: column;
+   margin-top: 40px;
+   
+
+ }
+
+ .nav-menu.active{
+   left: 0px;
+ }
+
+ .nav-branding{
+   font-size: 2rem;
+ }
+
+ .nav-link{
+   transition: 0.7s ease;
+   align-items: center;
+   gap: 10px;
+   display: flex;
+ }
+
+ .nav-link:hover{
+   color: rgb(78, 127, 177);
+ 
+ }
+
+ body{
+    display: flex;
+    gap: 10px;
+    height: 100dvh;
+    
+ }
+ 
