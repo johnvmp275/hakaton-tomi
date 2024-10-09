@@ -1,11 +1,10 @@
-<?php 
+<?php
 include("app/Database/connect.php");
 $pessoa_id = $_GET["idUser"];
-echo $pessoa_id;
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Capturar os dados enviados via POST
-    
+
     $altura = $_POST['altura'] ?? null;
     $peso = $_POST['peso'] ?? null;
     $tipo_sanguineo = $_POST['tipo_sanguineo'];
@@ -41,40 +40,72 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 ?>
 
-<form method="POST">
+<!DOCTYPE html>
+<html lang="pt-br">
 
-    <label for="altura">Altura:</label>
-    <input type="number" step="0.01" name="altura"><br>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <label for="peso">Peso:</label>
-    <input type="number" step="0.01" name="peso"><br>
+    <link rel="stylesheet" href="./app/resources/css/style-atendimento.css">
+</head>
 
-    <label for="tipo_sanguineo">Tipo Sanguíneo:</label>
-    <select name="tipo_sanguineo" required>
-        <option value="A+">A+</option>
-        <option value="A-">A-</option>
-        <option value="B+">B+</option>
-        <option value="B-">B-</option>
-        <option value="AB+">AB+</option>
-        <option value="AB-">AB-</option>
-        <option value="O+">O+</option>
-        <option value="O-">O-</option>
-    </select><br>
+<body>
 
-    <label for="pressao">Pressão:</label>
-    <input type="text" name="pressao"><br>
+    <main>
+        <div class="container">
+            <div class="heading">Atendimento ao Cliente</div>
+            <form action="" class="form" method="POST">
+                <div class="form-bloco">
+                    <div>
+                        <span class="forgot-password"><a>Insira a Altura:</a></span>
+                        <input required="" class="input" type="number" name="altura" placeholder="Digite a Altura">
+                    </div>
 
-    <label for="data_atendimento">Data do Atendimento:</label>
-    <input type="date" name="data_atendimento" required><br>
+                    <div>
+                        <span class="forgot-password"><a>Insira o Peso:</a></span>
+                        <input required="" class="input" type="number" name="peso" placeholder="Digite o Peso">
+                    </div>
+                </div>
 
-    <label for="localAtendimento">Local:</label>
-    <input type="text" name="localAtendimento" required><br>
+                <div class="form-bloco">
+                    <div>
+                        <span class="forgot-password"><a>Insira a Pressão Arterial:</a></span>
+                        <input required="" class="input" type="text" name="pressao"
+                            placeholder="Digite a Pressão Arterial">
+                    </div>
 
-    <label for="atendente_nome">Nome do Atendente:</label>
-    <input type="text" name="atendente_nome" required><br>
+                    <div>
+                        <span class="forgot-password"><a>Insira a Data do Atendimento:</a></span>
+                        <input required="" class="input" type="date" name="data_atendimento"
+                            placeholder="Digite a Data do Atendimento">
+                    </div>
+                </div>
 
-    <label for="observacao">Observação:</label>
-    <textarea name="observacao"></textarea><br>
+                <div class="form-bloco">
+                    <div>
+                        <span class="forgot-password"><a>Insira o Local do Atendimento:</a></span>
+                        <input required="" class="input" type="text" name="localAtendimento"
+                            placeholder="Digite o Local do Atendimento">
+                    </div>
 
-    <input type="submit" value="Enviar">
-</form>
+                    <div>
+                        <span class="forgot-password"><a>Insira o Nome do Atendente:</a></span>
+                        <input required="" class="input" type="text" name="atendente_nome"
+                            placeholder="Digite o Nome do Atendente">
+                    </div>
+                </div>
+
+                <div>
+                    <span class="forgot-password"><a>Observações:</a></span>
+                    <input required="" class="input" type="text" name="observacao" placeholder="Digite as Observações">
+                </div>
+
+                <input class="login-button" type="submit" value="Enviar">
+            </form>
+        </div>
+    </main>
+
+</body>
+
+</html>
