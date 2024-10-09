@@ -1,7 +1,4 @@
 <?php
-
-include("app/Database/connect.php");
-
 //OBTÉM A ROTA DA URL
 function obterRota()
 {
@@ -64,7 +61,7 @@ $tituloPagina = ucfirst(str_replace('-', ' ', $rota));
             </span>Pagina Inicial</a>
         </li>
         <li class="nav-item">
-          <a href="/doe" class="nav-link"><span class="material-symbols-outlined">
+          <a href="/dashboard" class="nav-link"><span class="material-symbols-outlined">
               dashboard
             </span>Dashboard</a>
         </li>

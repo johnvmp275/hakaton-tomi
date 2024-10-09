@@ -39,73 +39,49 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $conn->close();
 }
 ?>
+<div class="container">
+    <h2 class="titulo">Atendimento ao Cliente</h2>
+    <form class="form" method="POST">
 
-<!DOCTYPE html>
-<html lang="pt-br">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <link rel="stylesheet" href="./app/resources/css/style-atendimento.css">
-</head>
-
-<body>
-
-    <main>
-        <div class="container">
-            <div class="heading">Atendimento ao Cliente</div>
-            <form action="" class="form" method="POST">
-                <div class="form-bloco">
-                    <div>
-                        <span class="forgot-password"><a>Insira a Altura:</a></span>
-                        <input required="" class="input" type="number" name="altura" placeholder="Digite a Altura">
-                    </div>
-
-                    <div>
-                        <span class="forgot-password"><a>Insira o Peso:</a></span>
-                        <input required="" class="input" type="number" name="peso" placeholder="Digite o Peso">
-                    </div>
-                </div>
-
-                <div class="form-bloco">
-                    <div>
-                        <span class="forgot-password"><a>Insira a Pressão Arterial:</a></span>
-                        <input required="" class="input" type="text" name="pressao"
-                            placeholder="Digite a Pressão Arterial">
-                    </div>
-
-                    <div>
-                        <span class="forgot-password"><a>Insira a Data do Atendimento:</a></span>
-                        <input required="" class="input" type="date" name="data_atendimento"
-                            placeholder="Digite a Data do Atendimento">
-                    </div>
-                </div>
-
-                <div class="form-bloco">
-                    <div>
-                        <span class="forgot-password"><a>Insira o Local do Atendimento:</a></span>
-                        <input required="" class="input" type="text" name="localAtendimento"
-                            placeholder="Digite o Local do Atendimento">
-                    </div>
-
-                    <div>
-                        <span class="forgot-password"><a>Insira o Nome do Atendente:</a></span>
-                        <input required="" class="input" type="text" name="atendente_nome"
-                            placeholder="Digite o Nome do Atendente">
-                    </div>
-                </div>
-
-                <div>
-                    <span class="forgot-password"><a>Observações:</a></span>
-                    <input required="" class="input" type="text" name="observacao" placeholder="Digite as Observações">
-                </div>
-
-                <input class="login-button" type="submit" value="Enviar">
-            </form>
+        <div class="form-group">
+            <span class="">Insira a Altura:</span>
+            <input required="" class="form-control" type="number" name="altura" placeholder="Digite a Altura">
         </div>
-    </main>
 
-</body>
+        <div class="form-group">
+            <span class="">Insira o Peso:</span>
+            <input required="" class="form-control" type="number" name="peso" placeholder="Digite o Peso">
+        </div>
 
-</html>
+        <div class="form-group">
+            <span class="">Insira a Pressão Arterial:</span>
+            <input required="" class="form-control" type="text" name="pressao"
+                placeholder="Digite a Pressão Arterial">
+        </div>
+
+        <div class="form-group">
+            <span class="">Insira a Data do Atendimento:</span>
+            <input required="" class="form-control" type="date" name="data_atendimento"
+                placeholder="Digite a Data do Atendimento">
+        </div>
+
+        <div class="form-group">
+            <span class="">Insira o Local do Atendimento:</span>
+            <input required="" class="form-control" type="text" name="localAtendimento"
+                placeholder="Digite o Local do Atendimento">
+        </div>
+
+        <div class="form-group">
+            <span class="">Insira o Nome do Atendente:</span>
+            <input required="" class="form-control" type="text" name="atendente_nome"
+                placeholder="Digite o Nome do Atendente">
+        </div>
+
+        <div class="form-group">
+            <span class="">Observações:</span>
+            <input required="" class="form-control" type="text" name="observacao" placeholder="Digite as Observações">
+        </div>
+
+        <input class="login-button" type="submit" value="Enviar">
+    </form>
+</div>

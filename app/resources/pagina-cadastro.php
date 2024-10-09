@@ -77,7 +77,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 $conn->close();
 ?>
 
-<h2>Cadastro de Pessoas - Ação Social</h2>
+<h2 class="titulo">Cadastro de Pessoas - Ação Social</h2>
 
 <?php if (!empty($erro)): ?>
     <div style="color: red;"><?php echo $erro; ?></div>
