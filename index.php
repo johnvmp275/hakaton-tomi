@@ -66,7 +66,7 @@ $tituloPagina = ucfirst(str_replace('-', ' ', $rota));
             </span>Dashboard</a>
         </li>
         <li class="nav-item">
-          <a href="/dashboard" class="nav-link"><span class="material-symbols-outlined">
+          <a href="/co" class="nav-link"><span class="material-symbols-outlined">
               settings
             </span>Configuração</a>
         </li>
