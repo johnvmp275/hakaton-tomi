@@ -55,6 +55,7 @@ button{
    height: 100dvh;
    background-color: #303F52;
    min-width: 200px;
+   margin-right: 200px;
  }
 
  .nav-menu{

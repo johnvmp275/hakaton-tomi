@@ -8,7 +8,7 @@ body{
     padding: 25px 35px;
     box-sizing: border-box;
     width: 100%;
-    margin: 6vh 0 0 0;
+    margin: 2vh 0 0 0;
   }
   
   .heading {
@@ -45,6 +45,7 @@ body{
   
   
   .form .input {
+    color: #AAAAAA;
     width: 100%;
     background: white;
     border: none;
