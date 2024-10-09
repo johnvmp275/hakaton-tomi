@@ -51,13 +51,19 @@ button{
     border-radius: 8px;
  }
 
+ aside{
+  display: contents;
+  width: 200px;
+  position: static;
+  top: 0;
+ }
+
  .navbar{
    display:flex;
    justify-content: space-between;
    padding: 0 24px;
    flex-direction: column;
    max-width: 360px;
-   height: 100dvh;
    background-color: #303F52;
    min-width: 200px;
  }
@@ -68,6 +74,7 @@ button{
    z-index: 9999;
    flex-direction: column;
    margin-top: 40px;
+   position: fixed;
  }
 
  .nav-menu.active{
@@ -92,7 +99,6 @@ button{
 
  body{
     display: flex;
-    height: 100dvh;
     gap: 10px;
  }
 

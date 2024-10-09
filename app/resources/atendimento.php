@@ -39,7 +39,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $conn->close();
 }
 ?>
-<div class="container">
+
     <h2 class="titulo">Atendimento ao Cliente</h2>
     <form class="form" method="POST">
 
@@ -99,4 +99,3 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         <input class="login-button" type="submit" value="Enviar">
     </form>
-</div>
