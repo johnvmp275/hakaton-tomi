@@ -78,6 +78,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </div>
 
         <div class="form-group">
+            <span class="titulo">Selecione o Tipo Sanguíneo:</span>
+            <select required class="" name="tipo_sanguineo">
+                <option value="" disabled selected>Selecione o Tipo Sanguíneo</option>
+                <option value="A+">A+</option>
+                <option value="A-">A-</option>
+                <option value="B+">B+</option>
+                <option value="B-">B-</option>
+                <option value="AB+">AB+</option>
+                <option value="AB-">AB-</option>
+                <option value="O+">O+</option>
+                <option value="O-">O-</option>
+            </select>
+        </div>
+
+        <div class="form-group">
             <span class="">Observações:</span>
             <input required="" class="form-control" type="text" name="observacao" placeholder="Digite as Observações">
         </div>

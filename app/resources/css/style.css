@@ -37,6 +37,11 @@ button{
     padding: 5px 10px;
 }
 
+.form-double{
+  display: flex;
+  gap: 12px;
+}
+
  li{
     list-style: none;
  }
