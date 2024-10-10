@@ -7,7 +7,7 @@ function obterRota()
 
   //DEFINE A ROTA PADRÃO CASO ESTIVER VAZIA
   if (empty($rota[0])) {
-    $rota[0] = 'pagina-inicial';
+    $rota[0] = 'dashboard';
   }
 
   //RETORNA A ROTA
@@ -47,7 +47,7 @@ $tituloPagina = ucfirst(str_replace('-', ' ', $rota));
   <link rel="stylesheet" href="./app/resources/css/style.css">
   <link rel="stylesheet"
     href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
-    
+
   <title><?php $tituloPagina ?></title>
 </head>
 
@@ -57,16 +57,16 @@ $tituloPagina = ucfirst(str_replace('-', ' ', $rota));
       <ul class="nav-menu itens-menu">
         <li class="nav-item">
           <a href="/" class="nav-link"><span class="material-symbols-outlined">
-              home
-            </span>Pagina Inicial</a>
-        </li>
-        <li class="nav-item">
-          <a href="/dashboard" class="nav-link"><span class="material-symbols-outlined">
               dashboard
             </span>Dashboard</a>
         </li>
         <li class="nav-item">
-          <a href="/co" class="nav-link"><span class="material-symbols-outlined">
+          <a href="/pacientes" class="nav-link"><span class="material-symbols-outlined">
+              home
+            </span>Pacientes</a>
+        </li>
+        <li class="nav-item">
+          <a href="/configuracoes" class="nav-link"><span class="material-symbols-outlined">
               settings
             </span>Configuração</a>
         </li>
@@ -81,6 +81,8 @@ $tituloPagina = ucfirst(str_replace('-', ' ', $rota));
     incluirPagina($rota);
     ?>
   </main>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="./app/resources/js/script.js"></script>
 </body>
 
 </html>

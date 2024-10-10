@@ -1,6 +1,6 @@
 .listagem-topo {
     display: flex;
-    padding: 10px;
+    padding: 10px 0;
     justify-content: space-between;
     align-items: center;
 }
@@ -9,22 +9,23 @@
     background-color: #2a9d8f;
     color: white;
     border-radius: 5px;
-
 }
 
 .pesquisar{
     display: flex;
     align-items: center;
-    
+    width: 100%;
+    max-width: 370px;
 }
+
 .pesquisar button{
-    height: 34px;
-    
+    height: 39px;
 }
 
 table {
     border-collapse: collapse;
     margin-top:40px;
+    width: 100%;
 }
 
 table th{
@@ -42,16 +43,25 @@ table td{
 table tr{
     display: grid;
     align-items: center;
-    grid-template-columns: repeat(7, 1fr) .5fr;
+    grid-template-columns: 150px 124px 160px 120px 1fr 150px 160px .5fr;
 }
 
-table span{
+table .icon{
     border: none;
     background-color: transparent;
-    font-size: 50px;
+    font-size: 24px;
     color: black;
     align-items: center;
+}
 
+table td span{
+    align-items: center;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+    word-break: break-all;
 }
 
 table tr:nth-child(even) {

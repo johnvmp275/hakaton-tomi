@@ -77,53 +77,54 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 $conn->close();
 ?>
 
-<h2 class="titulo">Cadastro de Pessoas - Ação Social</h2>
+<h1 class="titulo">Cadastro de Pessoas - Ação Social</h1>
 
-<?php if (!empty($erro)): ?>
-    <div style="color: red;"><?php echo $erro; ?></div>
-<?php elseif (!empty($sucesso)): ?>
-    <div style="color: green;"><?php echo $sucesso; ?></div>
-<?php endif; ?>
+<form method="POST" class="container">
 
-<form method="POST">
+    <?php if (!empty($erro)): ?>
+        <div style="color: red;"><?php echo $erro; ?></div>
+    <?php elseif (!empty($sucesso)): ?>
+        <div style="color: green;"><?php echo $sucesso; ?></div>
+    <?php endif; ?>
+
     <div class="form-double">
-    <div class="form-gruop">
+        <div class="form-gruop">
 
-        <label for="nomePaciente">Nome Completo *</label>
-        <input type="text" id="nomePaciente" name="nomePaciente" required value="">
-    </div>
-    <div class="form-gruop">
-        <label for="dataNasc">Data de Nascimento *</label>
-        <input type="date" id="dataNasc" name="dataNasc" required value="">
-    </div>
+            <label for="nomePaciente">Nome Completo *</label>
+            <input type="text" id="nomePaciente" name="nomePaciente" required value="">
+        </div>
+        <div class="form-gruop">
+            <label for="dataNasc">Data de Nascimento *</label>
+            <input type="date" id="dataNasc" name="dataNasc" required value="">
+        </div>
     </div>
 
     <div class="form-gruop">
         <label for="bairro">Bairro *</label>
         <input type="text" id="bairro" name="bairro" required value="">
     </div>
-    
+
     <div class="form-double">
-    <div class="form-gruop">
-        <label for="genero">Gênero *</label>
-        <select id="genero" name="genero" required>
-            <option value="">Selecione</option>
-            <option value="Masculino">Masculino</option>
-            <option value="Feminino">Feminino</option>
-            <option value="Outro">Outro</option>
-        </select>
-    </div>
-    
-    <div class="form-gruop">
-        <label for="situacao_trabalhista">Situação Trabalhista *</label>
-        <select id="situacao_trabalhista" name="situacao_trabalhista" required>
-            <option value="">Selecione</option>
-            <option value="Empregado">>Empregado</option>
-            <option value="Desempregado">Desempregado</option>
-            <option value="Estudante">Estudante</option>
-            <option value="Outro">Outro</option>
-        </select>
-    </div>
+        <div class="form-gruop">
+            <label for="genero">Gênero *</label>
+            <select id="genero" name="genero" required>
+                <option value="">Selecione</option>
+                <option value="Masculino">Masculino</option>
+                <option value="Feminino">Feminino</option>
+                <option value="Outro">Outro</option>
+            </select>
+        </div>
+
+        <div class="form-gruop">
+            <label for="situacao_trabalhista">Situação Trabalhista *</label>
+            <select id="situacao_trabalhista" name="situacao_trabalhista" required>
+                <option value="">Selecione</option>
+                <option value="Empregado">Empregado</option>
+                <option value="Desempregado">Desempregado</option>
+                <option value="Estudante">Estudante</option>
+                <option value="Outro">Outro</option>
+            </select>
+        </div>
     </div>
 
     <div class="form-gruop">
@@ -135,19 +136,19 @@ $conn->close();
         <label for="documento">Documento (RG ou SUS) *</label>
         <input type="text" id="documento" name="documento" required value="" pattern="[0-9]+">
     </div>
-    
+
     <div class="form-gruop">
         <label for="observacao">Observação</label>
         <textarea id="observacao" name="observacao"></textarea>
     </div>
-    <button type="submit">Cadastrar</button>
+    <button type="submit" class="login-button">Cadastrar</button>
 
 
 </form>
 
 <script>
     // Validação no frontend para aceitar apenas números no campo documento
-    document.getElementById('documento').addEventListener('input', function (e) {
+    document.getElementById('documento').addEventListener('input', function(e) {
         this.value = this.value.replace(/[^0-9]/g, '');
     });
 </script>

@@ -1,13 +1,9 @@
-input[type="text"], input[type="date"], select, textarea {
+input, select, textarea {
     font-size: 16px;
     border: 1px solid #ccc;
     border-radius: 4px;
     width: 100%;
-}
-
-input[type="text"]:focus, input[type="date"]:focus, select:focus, textarea:focus {
-    border-color: #2a9d8f;
-    outline: none;
+    padding: 2px 16px;
 }
 
 textarea {
@@ -23,7 +19,6 @@ button[type="submit"] {
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    margin-top: 15px;
 }
 
 button[type="submit"]:hover {
