@@ -40,9 +40,49 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 ?>
 
-    <h2 class="titulo">Atendimento ao Cliente</h2>
-    <form class="form" method="POST">
+<h2 class="titulo">Atendimento ao Cliente</h2>
+<form class="form" method="POST">
 
+    <div class="form-group">
+        <span class="">Insira o Nome do Atendente:</span>
+        <select required class="" name="atendente">
+        <option value="" disabled selected>Selecione o nome do Atendente</option>
+                <option value="#"></option>
+                <option value="#"></option>
+                <option value="#"></option>
+                <option value="#"></option>
+                <option value="#"></option>
+                <option value="#"></option>
+                <option value="#"></option>
+                <option value="#"></option>
+   
+    </select>
+    <div class="form-group">
+        <span class="">Insira o Local do Atendimento:</span>
+        <select required class="" name="atendente">
+    <option value="" disabled selected>Selecione o local do Atendimento</option>
+            <option value="#"></option>
+            <option value="#"></option>
+            <option value="#"></option>
+            <option value="#"></option>
+            <option value="#"></option>
+            <option value="#"></option>
+            <option value="#"></option>
+            <option value="#"></option>
+
+</select>
+    </div>
+    </div>
+    <div class="form-double">
+        <div class="form-group">
+            <span class="">Insira a Data do Atendimento:</span>
+            <input required="" class="form-control" type="date" name="data_atendimento"
+                placeholder="Digite a Data do Atendimento">
+        </div>
+        
+        </div>
+        
+            <div class="form-double">
         <div class="form-group">
             <span class="">Insira a Altura:</span>
             <input required="" class="form-control" type="number" name="altura" placeholder="Digite a Altura">
@@ -52,33 +92,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <span class="">Insira o Peso:</span>
             <input required="" class="form-control" type="number" name="peso" placeholder="Digite o Peso">
         </div>
-
-        <div class="form-group">
-            <span class="">Insira a Pressão Arterial:</span>
-            <input required="" class="form-control" type="text" name="pressao"
-                placeholder="Digite a Pressão Arterial">
         </div>
 
+        <div class="form-double">
         <div class="form-group">
-            <span class="">Insira a Data do Atendimento:</span>
-            <input required="" class="form-control" type="date" name="data_atendimento"
-                placeholder="Digite a Data do Atendimento">
-        </div>
-
-        <div class="form-group">
-            <span class="">Insira o Local do Atendimento:</span>
-            <input required="" class="form-control" type="text" name="localAtendimento"
-                placeholder="Digite o Local do Atendimento">
-        </div>
-
-        <div class="form-group">
-            <span class="">Insira o Nome do Atendente:</span>
-            <input required="" class="form-control" type="text" name="atendente_nome"
-                placeholder="Digite o Nome do Atendente">
-        </div>
-
-        <div class="form-group">
-            <span class="titulo">Selecione o Tipo Sanguíneo:</span>
+            <span class="titulo">Tipo Sanguíneo:</span>
             <select required class="" name="tipo_sanguineo">
                 <option value="" disabled selected>Selecione o Tipo Sanguíneo</option>
                 <option value="A+">A+</option>
@@ -90,6 +108,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <option value="O+">O+</option>
                 <option value="O-">O-</option>
             </select>
+            <div class="form-group">
+                <span class="">Insira a Pressão Arterial:</span>
+                <input required="" class="form-control" type="text" name="pressao"
+                    placeholder="Digite a Pressão Arterial">
+            </div>
+        </div>
         </div>
 
         <div class="form-group">
