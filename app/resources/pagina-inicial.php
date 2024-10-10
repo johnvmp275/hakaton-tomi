@@ -26,7 +26,7 @@ $stmt->execute();
 $result = $stmt->get_result();
 ?>
 
-<h2>Listagem de Pessoas</h2>
+<h2 class="titulo">Listagem de Pessoas</h2>
 <div class="listagem-topo">
 
 <a href="/pagina-cadastro">
