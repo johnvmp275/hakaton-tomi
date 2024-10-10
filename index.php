@@ -62,7 +62,7 @@ $tituloPagina = ucfirst(str_replace('-', ' ', $rota));
         </li>
         <li class="nav-item">
           <a href="/pacientes" class="nav-link"><span class="material-symbols-outlined">
-              home
+              person
             </span>Pacientes</a>
         </li>
         <li class="nav-item">

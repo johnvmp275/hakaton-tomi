@@ -49,7 +49,6 @@ $result = $stmt->get_result();
         <tr>
             <th>Nome</th>
             <th>Nascimento</th>
-            <th>Bairro</th>
             <th>Gênero</th>
             <th>Documento</th>
             <th>Contato</th>
@@ -68,11 +67,6 @@ $result = $stmt->get_result();
                 <td>
                     <span>
                         <?php echo htmlspecialchars($row['dataNasc']); ?>
-                    </span>
-                </td>
-                <td>
-                    <span>
-                        <?php echo htmlspecialchars($row['bairro']); ?>
                     </span>
                 </td>
                 <td>

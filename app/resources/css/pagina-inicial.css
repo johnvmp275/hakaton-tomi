@@ -16,10 +16,12 @@
     align-items: center;
     width: 100%;
     max-width: 370px;
+    
 }
 
 .pesquisar button{
-    height: 39px;
+    height: 35px;
+    margin-left: 10px;
 }
 
 table {
@@ -43,7 +45,7 @@ table td{
 table tr{
     display: grid;
     align-items: center;
-    grid-template-columns: 150px 124px 160px 120px 1fr 150px 160px .5fr;
+    grid-template-columns: 150px 124px 120px 1fr 150px 160px .5fr;
 }
 
 table .icon{
