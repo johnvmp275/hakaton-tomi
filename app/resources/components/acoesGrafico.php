@@ -50,7 +50,7 @@ $conn->close();
 ?>
 
 <div class="form-group" style=" max-width: 360px;">
-    <label for="dataAno">Atendimentos por Ação:</label>
+    <label for="dataAno" class="subtitle" style="width: 480px;">Atendimentos por Ação:</label>
     <canvas id="acoesGrafico"></canvas>
 </div>
 

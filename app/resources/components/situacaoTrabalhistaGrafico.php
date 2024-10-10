@@ -59,28 +59,28 @@ while ($row = $result->fetch_assoc()) {
 }
 ?>
 <div class="form-row">
-    <div class="status-card form-group">
+    <div class="status-card form-group" style="background-color: #1D9EF5">
         <h3>Estudantes</h3>
         <p data-numero>
             <?php echo $estudantes; ?>
         </p>
     </div>
 
-    <div class="status-card form-group">
+    <div class="status-card form-group" style="background-color: #FF6384">
         <h3>Empregados</h3>
         <p data-numero>
             <?php echo $empregados; ?>
         </p>
     </div>
 
-    <div class="status-card form-group">
+    <div class="status-card form-group" style="background-color: #8244FF">
         <h3>Desempregados</h3>
         <p data-numero>
             <?php echo $desempregados; ?>
         </p>
     </div>
 
-    <div class="status-card form-group">
+    <div class="status-card form-group" style="background-color: #FFC534">
         <h3>Outros</h3>
         <p data-numero>
             <?php echo $outros; ?>

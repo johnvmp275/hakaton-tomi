@@ -66,10 +66,10 @@ $jsonData = json_encode(array_values($data));
 ?>
 
 <div>
-    <div class="form-group" style="max-width:200px">
+    <div class="form-group" style="max-width:200px; margin-top:20px;">
         <input type="date" id="dataAno" name="dataAno" value="" onchange="enviarData()">
     </div>
-    <canvas id="dataAtendimento" style="height: 360px; max-width: 100%;"></canvas>
+    <canvas id="dataAtendimento" style="height: 360px; max-width: 100%; margin-top: 20px;"></canvas>
 </div>
 
 <script>
