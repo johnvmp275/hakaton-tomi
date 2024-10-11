@@ -81,55 +81,64 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 $conn->close();
 ?>
 
-<h1 class="titulo">Configurações</h1>
+<div class="container">
 
-<div class="tab">
-    <button class="tablinks active" onclick="openCity(event, 'atendente')">Atendente</button>
-    <button class="tablinks" onclick="openCity(event, 'local')">Local de Atendimento</button>
-    <button class="tablinks" onclick="openCity(event, 'acao')">Ação do Atendimento</button>
-</div>
+    <h1 class="titulo">Configurações</h1>
 
-<div id="atendente" class="tabcontent">
-    <form method="POST" class="container">
-        <?php if ($erro): ?>
-            <div class="error-message"><?php echo $erro; ?></div>
-        <?php endif; ?>
-        <?php if ($sucesso): ?>
-            <div class="success-message"><?php echo $sucesso; ?></div>
-        <?php endif; ?>
-        <label for="nome_atendente">Nome do Atendente:</label>
-        <input type="text" id="nome_atendente" name="nome_atendente" required placeholder="Nome do Atendente" class="form-control">
+    <div class="tab">
+        <button class="tablinks active" onclick="openCity(event, 'atendente')">Atendente</button>
+        <button class="tablinks" onclick="openCity(event, 'local')">Local de Atendimento</button>
+        <button class="tablinks" onclick="openCity(event, 'acao')">Ação do Atendimento</button>
+    </div>
 
-        <label for="especialidade">Especialidade (opcional):</label>
-        <input type="text" id="especialidade" name="especialidade" placeholder="Especialidade" class="form-control">
+    <div id="atendente" class="tabcontent">
+        <form method="POST" class="container">
+            <?php if ($erro): ?>
+                <div class="error-message"><?php echo $erro; ?></div>
+            <?php endif; ?>
+            <?php if ($sucesso): ?>
+                <div class="success-message"><?php echo $sucesso; ?></div>
+            <?php endif; ?>
+            <label for="nome_atendente">Nome do Atendente:</label>
+            <input type="text" id="nome_atendente" name="nome_atendente" required placeholder="Nome do Atendente"
+                class="form-control">
 
-        <label for="contato_atendente">Contato do Atendente:</label>
-        <input type="text" id="contato_atendente" name="contato_atendente" required placeholder="Contato do Atendente" class="form-control">
+            <label for="especialidade">Especialidade (opcional):</label>
+            <input type="text" id="especialidade" name="especialidade" placeholder="Especialidade" class="form-control">
 
-        <button type="submit" name="add_atendente" class="login-button">Adicionar Atendente</button>
-    </form>
-</div>
+            <label for="contato_atendente">Contato do Atendente:</label>
+            <input type="text" id="contato_atendente" name="contato_atendente" required
+                placeholder="Contato do Atendente" class="form-control">
 
-<div id="local" class="tabcontent">
-    <form method="POST" class="container">
-        <label for="nome_local">Nome do Local:</label>
-        <input type="text" id="nome_local" name="nome_local" required placeholder="Nome do Local" class="form-control">
+            <button type="submit" name="add_atendente" class="login-button">Adicionar Atendente</button>
+        </form>
+    </div>
 
-        <label for="endereco_local">Endereço:</label>
-        <input type="text" id="endereco_local" name="endereco_local" required placeholder="Endereço" class="form-control">
+    <div id="local" class="tabcontent">
+        <form method="POST" class="container">
+            <label for="nome_local">Nome do Local:</label>
+            <input type="text" id="nome_local" name="nome_local" required placeholder="Nome do Local"
+                class="form-control">
 
-        <label for="contato_local">Contato do Local:</label>
-        <input type="text" id="contato_local" name="contato_local" required placeholder="Contato do Local" class="form-control">
+            <label for="endereco_local">Endereço:</label>
+            <input type="text" id="endereco_local" name="endereco_local" required placeholder="Endereço"
+                class="form-control">
 
-        <button type="submit" name="add_local" class="login-button">Adicionar Local</button>
-    </form>
-</div>
+            <label for="contato_local">Contato do Local:</label>
+            <input type="text" id="contato_local" name="contato_local" required placeholder="Contato do Local"
+                class="form-control">
 
-<div id="acao" class="tabcontent">
-    <form method="POST" class="container">
-        <label for="nome_acao">Nome da Ação:</label>
-        <input type="text" id="nome_acao" name="nome_acao" required placeholder="Nome da Ação" class="form-control">
+            <button type="submit" name="add_local" class="login-button">Adicionar Local</button>
+        </form>
+    </div>
 
-        <button type="submit" name="add_acao" class="login-button">Adicionar Ação</button>
-    </form>
+    <div id="acao" class="tabcontent">
+        <form method="POST" class="container">
+            <label for="nome_acao">Nome da Ação:</label>
+            <input type="text" id="nome_acao" name="nome_acao" required placeholder="Nome da Ação" class="form-control">
+
+            <button type="submit" name="add_acao" class="login-button">Adicionar Ação</button>
+        </form>
+    </div>
+
 </div>

@@ -26,83 +26,86 @@ $stmt->execute();
 $result = $stmt->get_result();
 ?>
 
-<h1 class="titulo">Listagem de Pessoas</h1>
-<div class="listagem-topo">
+<div class="container">
 
-    <a href="/pagina-cadastro">
-        <button>Cadastrar Pessoa +</button>
-    </a>
+    <h3 class="titulo">Listagem de Pessoas</h3>
+    <div class="listagem-topo">
+
+        <a href="/pagina-cadastro">
+            <button>Cadastrar Pessoa +</button>
+        </a>
 
 
-    <!-- Alterado o método para GET -->
-    <form method="GET" class="pesquisar">
-        <input type="text" name="pesquisa" placeholder="Pesquisar Dados do Paciente"
-            value="<?php echo htmlspecialchars($pesquisa); ?>" class="form-control">
-        <button type="submit"><span class="material-symbols-outlined">
-                search
-            </span></button>
-    </form>
-</div>
+        <!-- Alterado o método para GET -->
+        <form method="GET" class="pesquisar">
+            <input type="text" name="pesquisa" placeholder="Pesquisar Dados do Paciente"
+                value="<?php echo htmlspecialchars($pesquisa); ?>" class="form-control">
+            <button type="submit"><span class="material-symbols-outlined">
+                    search
+                </span></button>
+        </form>
+    </div>
 
-<table>
-    <thead>
-        <tr>
-            <th>Nome</th>
-            <th>Nascimento</th>
-            <th>Bairro</th>
-            <th>Gênero</th>
-            <th>Documento</th>
-            <th>Contato</th>
-            <th>Ocupação</th>
-            <th>Ações</th>
-        </tr>
-    </thead>
-    <tbody>
-        <?php while ($row = $result->fetch_assoc()): ?>
+    <table>
+        <thead>
             <tr>
-                <td>
-                    <span>
-                        <?php echo htmlspecialchars($row['nomePaciente']); ?>
-                    </span>
-                </td>
-                <td>
-                    <span>
-                        <?php echo htmlspecialchars($row['dataNasc']); ?>
-                    </span>
-                </td>
-                <td>
-                    <span>
-                        <?php echo htmlspecialchars($row['bairro']); ?>
-                    </span>
-                </td>
-                <td>
-                    <span>
-                        <?php echo htmlspecialchars($row['genero']); ?>
-                    </span>
-                </td>
-                <td>
-                    <span>
-                        <?php echo htmlspecialchars($row['documento']); ?>
-                    </span>
-                </td>
-                <td>
-                    <span>
-                        <?php echo htmlspecialchars($row['contato']); ?>
-                    </span>
-                </td>
-                <td>
-                    <span>
-                        <?php echo htmlspecialchars($row['situacao_trabalhista']); ?>
-                    </span>
-                </td>
-                <td>
-                    <a href="/atendimento?idUser=<?php echo urlencode($row['idPaciente']); ?>">
-                        <span class="material-symbols-outlined icon" >
-                            edit_document
-                        </span>
-                    </a>
-                </td>
+                <th>Nome</th>
+                <th>Nascimento</th>
+                <th>Bairro</th>
+                <th>Gênero</th>
+                <th>Documento</th>
+                <th>Contato</th>
+                <th>Ocupação</th>
+                <th>Ações</th>
             </tr>
-        <?php endwhile; ?>
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+            <?php while ($row = $result->fetch_assoc()): ?>
+                <tr>
+                    <td>
+                        <span>
+                            <?php echo htmlspecialchars($row['nomePaciente']); ?>
+                        </span>
+                    </td>
+                    <td>
+                        <span>
+                            <?php echo htmlspecialchars($row['dataNasc']); ?>
+                        </span>
+                    </td>
+                    <td>
+                        <span>
+                            <?php echo htmlspecialchars($row['bairro']); ?>
+                        </span>
+                    </td>
+                    <td>
+                        <span>
+                            <?php echo htmlspecialchars($row['genero']); ?>
+                        </span>
+                    </td>
+                    <td>
+                        <span>
+                            <?php echo htmlspecialchars($row['documento']); ?>
+                        </span>
+                    </td>
+                    <td>
+                        <span>
+                            <?php echo htmlspecialchars($row['contato']); ?>
+                        </span>
+                    </td>
+                    <td>
+                        <span>
+                            <?php echo htmlspecialchars($row['situacao_trabalhista']); ?>
+                        </span>
+                    </td>
+                    <td>
+                        <a href="/atendimento?idUser=<?php echo urlencode($row['idPaciente']); ?>">
+                            <span class="material-symbols-outlined icon">
+                                edit_document
+                            </span>
+                        </a>
+                    </td>
+                </tr>
+            <?php endwhile; ?>
+        </tbody>
+    </table>
+</div>
