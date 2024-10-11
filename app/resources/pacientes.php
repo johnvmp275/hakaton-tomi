@@ -46,6 +46,7 @@ $result = $stmt->get_result();
         </form>
     </div>
 
+<<<<<<< HEAD
     <table>
         <thead>
             <tr>
@@ -57,6 +58,60 @@ $result = $stmt->get_result();
                 <th>Contato</th>
                 <th>Ocupação</th>
                 <th>Ações</th>
+=======
+<table>
+    <thead>
+        <tr>
+            <th>Nome</th>
+            <th>Nascimento</th>
+            <th>Gênero</th>
+            <th>Documento</th>
+            <th>Contato</th>
+            <th>Ocupação</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php while ($row = $result->fetch_assoc()): ?>
+            <tr>
+                <td>
+                    <span>
+                        <?php echo htmlspecialchars($row['nomePaciente']); ?>
+                    </span>
+                </td>
+                <td>
+                    <span>
+                        <?php echo htmlspecialchars($row['dataNasc']); ?>
+                    </span>
+                </td>
+                <td>
+                    <span>
+                        <?php echo htmlspecialchars($row['genero']); ?>
+                    </span>
+                </td>
+                <td>
+                    <span>
+                        <?php echo htmlspecialchars($row['documento']); ?>
+                    </span>
+                </td>
+                <td>
+                    <span>
+                        <?php echo htmlspecialchars($row['contato']); ?>
+                    </span>
+                </td>
+                <td>
+                    <span>
+                        <?php echo htmlspecialchars($row['situacao_trabalhista']); ?>
+                    </span>
+                </td>
+                <td>
+                    <a href="/atendimento?idUser=<?php echo urlencode($row['idPaciente']); ?>">
+                        <span class="material-symbols-outlined icon" >
+                            edit_document
+                        </span>
+                    </a>
+                </td>
+>>>>>>> d245f1b78b05a234f01d220dcfb334a1a2a1f82f
             </tr>
         </thead>
         <tbody>
