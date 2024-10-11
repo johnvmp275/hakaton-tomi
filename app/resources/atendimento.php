@@ -76,7 +76,7 @@ $conn->close();
 <div class="container">
 
     <h1 class="titulo">Atendimento ao Cliente</h1>
-    <form class="container" method="POST">
+    <form class="form-group" method="POST">
 
         <!-- Seleção do local de atendimento -->
         <div class="form-group">
@@ -183,6 +183,8 @@ $conn->close();
             <input class="form-control" type="text" name="observacao" placeholder="Digite as Observações (opcional)">
         </div>
 
-        <input class="login-button" type="submit" value="Enviar">
+        <button class="login-button" type="submit">
+            Enviar
+        </button>
     </form>
 </div>

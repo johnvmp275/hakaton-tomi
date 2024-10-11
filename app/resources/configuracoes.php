@@ -92,7 +92,7 @@ $conn->close();
     </div>
 
     <div id="atendente" class="tabcontent">
-        <form method="POST" class="container">
+        <form method="POST" class="form-group">
             <?php if ($erro): ?>
                 <div class="error-message"><?php echo $erro; ?></div>
             <?php endif; ?>
@@ -115,7 +115,7 @@ $conn->close();
     </div>
 
     <div id="local" class="tabcontent">
-        <form method="POST" class="container">
+        <form method="POST" class="form-group">
             <label for="nome_local">Nome do Local:</label>
             <input type="text" id="nome_local" name="nome_local" required placeholder="Nome do Local"
                 class="form-control">
@@ -133,7 +133,7 @@ $conn->close();
     </div>
 
     <div id="acao" class="tabcontent">
-        <form method="POST" class="container">
+        <form method="POST" class="form-group">
             <label for="nome_acao">Nome da Ação:</label>
             <input type="text" id="nome_acao" name="nome_acao" required placeholder="Nome da Ação" class="form-control">
 
