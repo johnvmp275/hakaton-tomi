@@ -1,0 +1,69 @@
+.listagem-topo {
+    display: flex;
+    padding: 10px 0;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.listagem-topo button{
+    background-color: #2a9d8f;
+    color: white;
+    border-radius: 5px;
+}
+
+.pesquisar{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: 370px;
+}
+
+.pesquisar button{
+    height: 39px;
+}
+
+table {
+    border-collapse: collapse;
+    margin-top:40px;
+    width: 100%;
+}
+
+table th{
+    font-size: 18px;
+    color: #fff;
+    line-height: 1.4;
+    background-color: #2a9d8f;
+    padding: 10px;
+}
+
+table td{
+    padding: 16px;
+}
+
+table tr{
+    display: grid;
+    align-items: center;
+    grid-template-columns: 150px 124px 160px 120px 1fr 150px 160px .5fr;
+}
+
+table .icon{
+    border: none;
+    background-color: transparent;
+    font-size: 24px;
+    color: black;
+    align-items: center;
+}
+
+table td span{
+    align-items: center;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+    word-break: break-all;
+}
+
+table tr:nth-child(even) {
+    background-color: #f8f6ff;
+}
