@@ -58,17 +58,17 @@ $tituloPagina = ucfirst(str_replace('-', ' ', $rota));
         <li class="nav-item">
           <a href="/Departamentos" class="nav-link"><span class="material-symbols-outlined">
               dashboard
-            </span>Departamentos</a>
-        </li>
-        <li class="nav-item">
-          <a href="/pagina-cadastro" class="nav-link"><span class="material-symbols-outlined">
-              home
-            </span>Cadastro</a>
+            </span>Dashboard</a>
         </li>
         <li class="nav-item">
           <a href="/funcionarios" class="nav-link"><span class="material-symbols-outlined">
-              settings
+              person
             </span>funcionarios</a>
+        </li>
+        <li class="nav-item">
+          <a href="/pagina-cadastro" class="nav-link"><span class="material-symbols-outlined">
+              settings
+            </span>Cadastro</a>
         </li>
         </form>
       </ul>

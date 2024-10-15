@@ -43,7 +43,14 @@ table td{
 table tr{
     display: grid;
     align-items: center;
-    grid-template-columns: 150px 124px 160px 120px 1fr 150px 160px .5fr;
+}
+
+.funcionarios tr{
+    grid-template-columns: .5fr repeat(5, 1fr);
+}
+
+.departamentos tr{
+    grid-template-columns: .2fr repeat(2, 1fr);
 }
 
 table .icon{

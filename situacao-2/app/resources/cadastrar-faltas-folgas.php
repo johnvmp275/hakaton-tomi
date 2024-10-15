@@ -53,57 +53,6 @@ if ($result_funcionario->num_rows > 0) {
 }
 ?>
 
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastrar Faltas/Folgas</title>
-    <style>
-        .container {
-            width: 50%;
-            margin: 0 auto;
-        }
-
-        .form-group {
-            margin-bottom: 15px;
-        }
-
-        label {
-            display: block;
-            margin-bottom: 5px;
-        }
-
-        input[type="date"], select, input[type="text"] {
-            width: 100%;
-            padding: 8px;
-            box-sizing: border-box;
-        }
-
-        .btn {
-            padding: 10px 15px;
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-        .btn:hover {
-            background-color: #45a049;
-        }
-
-        .msg-erro {
-            color: red;
-        }
-
-        .msg-sucesso {
-            color: green;
-        }
-    </style>
-</head>
-<body>
-
 <div class="container">
     <h1>Cadastrar Falta/Folga para <?= htmlspecialchars($funcionario['nome']) ?></h1>
 
@@ -138,6 +87,3 @@ if ($result_funcionario->num_rows > 0) {
         <button type="submit" class="btn">Cadastrar</button>
     </form>
 </div>
-
-</body>
-</html>

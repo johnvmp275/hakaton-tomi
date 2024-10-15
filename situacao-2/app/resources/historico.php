@@ -38,19 +38,6 @@ if ($result_funcionario->num_rows > 0) {
 }
 ?>
 
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Histórico de Faltas e Folgas</title>
-    <style>
-        
-
-    </style>
-</head>
-<body>
-
 <div class="container">
     <h1>Histórico de Faltas e Folgas para <?= htmlspecialchars($funcionario['nome']) ?></h1>
 
@@ -106,6 +93,3 @@ if ($result_funcionario->num_rows > 0) {
         </tbody>
     </table>
 </div>
-
-</body>
-</html>

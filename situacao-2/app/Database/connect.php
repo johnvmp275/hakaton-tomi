@@ -1,8 +1,8 @@
 <?php
 // Conectar ao banco de dados NÃO ESQUEÇA DE MUDAR O LOCALHOST <--
-$servername = "localhost:3308";
+$servername = "localhost:3306";
 $username = "root";
-$password = "etec2024";
+$password = "etec2023";
 $database = "controle_funcionarios";
 
 $conn = new mysqli($servername, $username, $password, $database);
