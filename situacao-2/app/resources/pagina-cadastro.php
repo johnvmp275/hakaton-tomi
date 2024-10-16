@@ -22,13 +22,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['cadastrar_departament
 // Verifica se o formulário de cadastro de funcionário foi enviado
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['cadastrar_funcionario'])) {
     $nome_funcionario = $_POST['nome_funcionario'];
-    $idade = $_POST['idade'];
+    $dataNasc = $_POST['dataNasc']; // Data já vem no formato YYYY-MM-DD
     $salario = $_POST['salario'];
     $departamento_id = $_POST['departamento_id'];
 
     // Insere o funcionário no banco de dados usando mysqli
-    $stmt = $conn->prepare("INSERT INTO funcionarios (nome, idade, salario, departamento_id) VALUES (?, ?, ?, ?)");
-    $stmt->bind_param("sidi", $nome_funcionario, $idade, $salario, $departamento_id);
+    $stmt = $conn->prepare("INSERT INTO funcionarios (nome, dataNasc, salario, departamento_id) VALUES (?, ?, ?, ?)");
+    $stmt->bind_param("ssdi", $nome_funcionario, $dataNasc, $salario, $departamento_id);
 
     if ($stmt->execute()) {
         echo "<p>Funcionário '$nome_funcionario' cadastrado com sucesso!</p>";
@@ -39,6 +39,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['cadastrar_funcionario
     $stmt->close();
 }
 
+
 // Obtém a lista de departamentos usando mysqli
 $result = $conn->query("SELECT * FROM departamentos");
 $departamentos = $result->fetch_all(MYSQLI_ASSOC);
@@ -46,15 +47,16 @@ $departamentos = $result->fetch_all(MYSQLI_ASSOC);
 
 
 <div class="tab">
-    <button class="tablinks active" onclick="openCity(event, 'departamento')">Departamento</button>
     <button class="tablinks" onclick="openCity(event, 'funcionarios')">Funcionários</button>
+    <button class="tablinks" onclick="openCity(event, 'departamentos')">Departamento</button>
 </div>
 
-<div id="departamento" class="tabcontent">
-    <h1>Cadastrar Departamento</h1>
+<div id="funcionarios" class="tabcontent">
+    <h1>Cadastrar Funcionário</h1>
     <form method="POST" class="form-group">
         Nome do Funcionário: <input type="text" name="nome_funcionario" required>
-        Idade: <input type="number" name="idade" required>
+        <label for="dataNasc">Data de Nascimento:</label>
+        <input type="date" name="dataNasc" required>
         Salário: <input type="number" name="salario" step="0.01" required>
         Departamento:
         <select name="departamento_id" required>
@@ -67,8 +69,8 @@ $departamentos = $result->fetch_all(MYSQLI_ASSOC);
     </form>
 </div>
 
-<div id="funcionarios" class="tabcontent">
-    <h1>Cadastrar Funcionário</h1>
+<div id="departamentos" class="tabcontent">
+    <h1>Cadastrar Departamento</h1>
     <form method="POST" class="form-group">
         Nome do Departamento: <input type="text" name="nome_departamento" required>
         <input type="submit" name="cadastrar_departamento" value="Cadastrar Departamento">

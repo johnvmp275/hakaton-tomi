@@ -40,9 +40,14 @@ if ($result_funcionario->num_rows > 0) {
 
 <div class="container">
     <h1>Histórico de Faltas e Folgas para <?= htmlspecialchars($funcionario['nome']) ?></h1>
+    <a href="/gerenciamento">
+        <button>
+            Voltar a Listagem
+        </button>
+    </a>
 
     <h2>Faltas</h2>
-    <table>
+    <table class="table-data">
         <thead>
             <tr>
                 <th>ID</th>
@@ -68,7 +73,7 @@ if ($result_funcionario->num_rows > 0) {
     </table>
 
     <h2>Folgas</h2>
-    <table>
+    <table class="table-data">
         <thead>
             <tr>
                 <th>ID</th>

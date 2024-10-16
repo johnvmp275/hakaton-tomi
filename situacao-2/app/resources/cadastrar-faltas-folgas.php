@@ -55,6 +55,11 @@ if ($result_funcionario->num_rows > 0) {
 
 <div class="container">
     <h1>Cadastrar Falta/Folga para <?= htmlspecialchars($funcionario['nome']) ?></h1>
+    <a href="/gerenciamento">
+        <button>
+            Voltar a Listagem
+        </button>
+    </a>
 
     <?php if (isset($erro)): ?>
         <p class="msg-erro"><?= $erro ?></p>

@@ -12,7 +12,7 @@ if (isset($_GET['searchFuncionarios'])) {
 
 // Busca todos os funcionários no banco de dados, considerando a pesquisa
 $query = "
-    SELECT f.id, f.nome, f.idade, f.salario, d.nome AS departamento 
+    SELECT f.id, f.nome, f.dataNasc, f.salario, d.nome AS departamento 
     FROM funcionarios f 
     JOIN departamentos d ON f.departamento_id = d.id
 ";
@@ -80,15 +80,15 @@ $result = $stmt->get_result();
 
 
 <div class="tab">
-    <button class="tablinks active" onclick="openCity(event, 'funcionarios')">Funcionários</button>
+    <button class="tablinks" onclick="openCity(event, 'funcionarios')">Funcionários</button>
     <button class="tablinks" onclick="openCity(event, 'departamentos')">Departamentos</button>
 </div>
 
 <div id="funcionarios" class="tabcontent">
     <h1>Lista de Funcionários</h1>
     <div class="search-container">
-        <form action="" method="get">
-            <input type="text" name="searchFuncionarios" value="<?= htmlspecialchars($searchFuncionarios) ?>" placeholder="Pesquisar por nome, departamento ou salário...">
+        <form action="" method="get" class="pesquisar">
+            <input type="text" name="searchFuncionarios" value="<?= htmlspecialchars($searchFuncionarios) ?>" placeholder="Pesquisar por nome, departamento ou salário..." class="form-control">
             <button type="submit">Buscar</button>
         </form>
     </div>
@@ -97,7 +97,7 @@ $result = $stmt->get_result();
             <tr>
                 <th>ID</th>
                 <th>Nome</th>
-                <th>Idade</th>
+                <th>Nascimento</th>
                 <th>Salário</th>
                 <th>Departamento</th>
                 <th>Ações</th>
@@ -109,15 +109,35 @@ $result = $stmt->get_result();
                     <tr>
                         <td><?= $funcionario['id'] ?></td>
                         <td><?= $funcionario['nome'] ?></td>
-                        <td><?= $funcionario['idade'] ?></td>
+                        <td><?= $funcionario['dataNasc'] ?></td>
                         <td>R$ <?= number_format($funcionario['salario'], 2, ',', '.') ?></td>
                         <td><?= $funcionario['departamento'] ?></td>
                         <td>
                             <!-- Botão para ver o histórico do funcionário -->
-                            <a href="historico?id=<?= $funcionario['id'] ?>" class="btn btn-historico">Ver Histórico</a>
+                            <a href="historico?id=<?= $funcionario['id'] ?>" class="btn btn-historico">
+                                <button>
+                                    <span class="material-symbols-outlined">
+                                        history
+                                    </span>
+                                </button>
+                            </a>
 
                             <!-- Botão para cadastrar faltas e folgas -->
-                            <a href="cadastrar-faltas-folgas?id=<?= $funcionario['id'] ?>" class="btn btn-faltas">Cadastrar Faltas/Folgas</a>
+                            <a href="cadastrar-faltas-folgas?id=<?= $funcionario['id'] ?>" class="btn btn-faltas">
+                                <button>
+                                    <span class="material-symbols-outlined">
+                                        visibility
+                                    </span>
+                                </button>
+                            </a>
+
+                            <a href="edicao-funcionarios?id=<?= $funcionario['id'] ?>" class="btn btn-faltas">
+                                <button>
+                                    <span class="material-symbols-outlined">
+                                        edit
+                                    </span>
+                                </button>
+                            </a>
                         </td>
                     </tr>
                 <?php endforeach; ?>
@@ -134,8 +154,8 @@ $result = $stmt->get_result();
     <h1>Departamentos</h1>
 
     <div class="search-container">
-        <form action="" method="get">
-            <input type="text" name="searchDepartamentos" value="<?= htmlspecialchars($searchDepartamentos) ?>" placeholder="Pesquisar departamento...">
+        <form action="" method="get" class="pesquisar">
+            <input type="text" name="searchDepartamentos" value="<?= htmlspecialchars($searchDepartamentos) ?>" placeholder="Pesquisar departamento..." class="form-control">
             <button type="submit">Buscar</button>
         </form>
     </div>

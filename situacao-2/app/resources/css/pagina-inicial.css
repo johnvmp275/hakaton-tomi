@@ -45,11 +45,21 @@ table tr{
     align-items: center;
 }
 
+table tr td{
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
 .funcionarios tr{
     grid-template-columns: .5fr repeat(5, 1fr);
 }
 
 .departamentos tr{
+    grid-template-columns: .2fr repeat(2, 1fr);
+}
+
+.table-data tr{
     grid-template-columns: .2fr repeat(2, 1fr);
 }
 

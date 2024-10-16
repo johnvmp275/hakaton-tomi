@@ -56,14 +56,14 @@ $tituloPagina = ucfirst(str_replace('-', ' ', $rota));
     <nav class="navbar">
       <ul class="nav-menu itens-menu">
         <li class="nav-item">
-          <a href="/Departamentos" class="nav-link"><span class="material-symbols-outlined">
+          <a href="/dashboard" class="nav-link"><span class="material-symbols-outlined">
               dashboard
             </span>Dashboard</a>
         </li>
         <li class="nav-item">
-          <a href="/funcionarios" class="nav-link"><span class="material-symbols-outlined">
+          <a href="/gerenciamento" class="nav-link"><span class="material-symbols-outlined">
               person
-            </span>funcionarios</a>
+            </span>Gerenciamento</a>
         </li>
         <li class="nav-item">
           <a href="/pagina-cadastro" class="nav-link"><span class="material-symbols-outlined">
