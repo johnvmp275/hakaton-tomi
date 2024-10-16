@@ -16,16 +16,15 @@
     align-items: center;
     width: 100%;
     max-width: 370px;
-    
 }
 
 .pesquisar button{
-    height: 35px;
-    margin-left: 10px;
+    height: 39px;
 }
 
 table {
     border-collapse: collapse;
+    margin-top:40px;
     width: 100%;
 }
 
@@ -44,7 +43,24 @@ table td{
 table tr{
     display: grid;
     align-items: center;
-    grid-template-columns: 150px 124px 120px 1fr 150px 160px .5fr;
+}
+
+table tr td{
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.funcionarios tr{
+    grid-template-columns: .5fr repeat(5, 1fr);
+}
+
+.departamentos tr{
+    grid-template-columns: .2fr repeat(2, 1fr);
+}
+
+.table-data tr{
+    grid-template-columns: .2fr repeat(2, 1fr);
 }
 
 table .icon{
