@@ -100,7 +100,7 @@ $result = $stmt->get_result();
             </select>
         </div>
     </form>
-    <canvas id="faixaEtaria" style="max-height: 360px; max-width: 560px;"></canvas>
+    <canvas id="faixaEtaria" style="max-height: 360px; min-width: 560px;"></canvas>
 </div>
 
 <script>

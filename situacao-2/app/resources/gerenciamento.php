@@ -180,7 +180,7 @@ $result = $stmt->get_result();
                             <!-- Botão para ver funcionários do departamento -->
                             <a href="verFuncionarios?id=<?= $departamento['id'] ?>" class="btn btn-ver-funcionarios">
                                 <button>
-                                    <span class="material-symbols-outlined">visibility</span> Ver Funcionários
+                                    <span class="material-symbols-outlined">visibility</span> 
                                 </button>
                             </a>
                         </td>
