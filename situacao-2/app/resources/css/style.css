@@ -167,9 +167,9 @@ main {
   color: white;
 }
 
-.subtitle{
+.subtitle {
   font-size: 1.2em;
-  font-weight:600;
+  font-weight: 600;
 }
 
 
@@ -200,5 +200,13 @@ main {
 .tabcontent {
   display: none;
   padding: 6px 12px;
-  border-top: none;
+  border-top: none;
+}
+
+.form-row2 {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  max-width: 1110px;
+  margin: 40px 0 90px 0;
 }

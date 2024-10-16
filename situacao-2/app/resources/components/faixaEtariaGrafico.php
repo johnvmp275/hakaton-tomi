@@ -83,7 +83,7 @@ $result = $stmt->get_result();
 
 <div>
     <form method="GET" action="">
-        <div class="form-group">
+        <div class="form-group" style="margin-top:10px">
             <label for="departamento_id">Selecione o Departamento:</label>
             <select name="departamento_id" id="departamento_id" class="form-control" onchange="this.form.submit()">
                 <option value="">Todos</option>

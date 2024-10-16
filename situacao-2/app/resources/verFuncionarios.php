@@ -40,6 +40,7 @@ if (isset($_GET['id'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <div class="container">
     <title>Funcionários do Departamento - <?= htmlspecialchars($departamento['nome']) ?></title>
     <style>
         table {
@@ -61,6 +62,10 @@ if (isset($_GET['id'])) {
 <body>
 
 <h1>Funcionários do Departamento: <?= htmlspecialchars($departamento['nome']) ?></h1>
+
+<a href="/gerenciamento">
+        <button>Voltar ao Gerenciamento</button>
+    </a>
 
 <table>
     <thead>
@@ -86,6 +91,8 @@ if (isset($_GET['id'])) {
 </table>
 
 <a href="gerenciar-departamentos">Voltar aos Departamentos</a>
+
+</div>
 
 </body>
 </html>

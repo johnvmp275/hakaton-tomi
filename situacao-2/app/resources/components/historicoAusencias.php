@@ -52,7 +52,7 @@ $conn->close();
     </div>
 </form>
 
-<div class="form-row">
+<div class="form-row2">
     <div class="status-card form-group" style="background-color: #1D9EF5">
         <h3>Faltas</h3>
         <p data-numero>
