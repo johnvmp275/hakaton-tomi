@@ -44,7 +44,19 @@ if (is_numeric($funcionario_id)) {
 $conn->close();
 ?>
 
+<<<<<<< HEAD
 <div class="form-row">
+=======
+<form method="GET" action="">
+    <div class="form-group">
+        <label for="funcionario_id">Selecione o Funcionário (ID):</label>
+        <input type="number" name="funcionario_id" id="funcionario_id" class="form-control" value="<?php echo htmlspecialchars($funcionario_id); ?>" placeholder="Digite o ID do funcionário" required>
+        <button type="submit" class="btn btn-primary">Consultar</button>
+    </div>
+</form>
+
+<div class="form-row2">
+>>>>>>> f4f6e5fa38ff3b8e52ff8e59ac690a46451f0db0
     <div class="status-card form-group" style="background-color: #1D9EF5">
         <h3>Faltas</h3>
         <p data-numero>

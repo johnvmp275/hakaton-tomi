@@ -63,18 +63,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <!-- Exibe a mensagem de sucesso ou erro -->
 <p id="mensagem"><?= $mensagem ?></p>
 
-<form id="form-editar" method="POST">
+<form id="form-editar" method="POST" class="form-group">
     <label for="nome">Nome:</label>
-    <input type="text" id="nome" name="nome" value="<?= htmlspecialchars($funcionario['nome']) ?>" required>
+    <input class="form-control" type="text" id="nome" name="nome" value="<?= htmlspecialchars($funcionario['nome']) ?>" required>
 
     <label for="dataNasc">Data de Nascimento:</label>
-    <input type="date" id="dataNasc" name="dataNasc" value="<?= htmlspecialchars($funcionario['dataNasc']) ?>" required>
+    <input class="form-control" type="date" id="dataNasc" name="dataNasc" value="<?= htmlspecialchars($funcionario['dataNasc']) ?>" required>
 
     <label for="salario">Salário:</label>
-    <input type="number" id="salario" name="salario" step="0.01" value="<?= htmlspecialchars($funcionario['salario']) ?>" required>
+    <input class="form-control" type="number" id="salario" name="salario" step="0.01" value="<?= htmlspecialchars($funcionario['salario']) ?>" required>
 
     <label for="departamento_id">Departamento:</label>
-    <select id="departamento_id" name="departamento_id" required>
+    <select class="form-control" id="departamento_id" name="departamento_id" required>
         <?php
         // Consulta para buscar todos os departamentos
         $result = $conn->query("SELECT * FROM departamentos");
@@ -88,7 +88,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         ?>
     </select>
 
-    <input type="submit" value="Salvar Alterações">
+    <input class="form-control bnt" type="submit" value="Salvar Alterações">
 </form>
 
 <script>
