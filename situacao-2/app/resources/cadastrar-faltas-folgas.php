@@ -12,30 +12,41 @@ $funcionario_id = $_GET['id'];
 
 // Se o formulário for enviado
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $data = $_POST['data'];
     $tipo = $_POST['tipo']; // Pode ser 'falta' ou 'folga'
     $motivo = $_POST['motivo']; // Motivo da falta ou folga
 
-    // Validação simples
-    if (empty($data) || empty($tipo) || empty($motivo)) {
-        $erro = "Por favor, preencha todos os campos.";
-    } else {
-        if ($tipo === 'falta') {
-            // Insere a falta no banco de dados
-            $query = "INSERT INTO faltas (funcionario_id, dataFaltas, motivoFaltas) VALUES (?, ?, ?)";
+    // Se for folga, utiliza data de início e fim
+    if ($tipo === 'folga') {
+        $data_inicio = $_POST['dataInicio'];
+        $data_fim = $_POST['dataFim'];
+
+        if (empty($data_inicio) || empty($data_fim) || empty($tipo) || empty($motivo)) {
+            $erro = "Por favor, preencha todos os campos.";
         } else {
             // Insere a folga no banco de dados
-            $query = "INSERT INTO folgas (funcionario_id, dataFolgas, motivoFolgas) VALUES (?, ?, ?)";
+            $query = "INSERT INTO folgas (funcionario_id, dataInicio, dataFim, motivoFolgas) VALUES (?, ?, ?, ?)";
+            $stmt = $conn->prepare($query);
+            $stmt->bind_param("isss", $funcionario_id, $data_inicio, $data_fim, $motivo);
         }
-        
-        $stmt = $conn->prepare($query);
-        $stmt->bind_param("iss", $funcionario_id, $data, $motivo);
+    } else {
+        // Se for falta, utiliza apenas a data única
+        $data = $_POST['data'];
 
-        if ($stmt->execute()) {
-            $sucesso = "Falta/Folga cadastrada com sucesso!";
+        if (empty($data) || empty($tipo) || empty($motivo)) {
+            $erro = "Por favor, preencha todos os campos.";
         } else {
-            $erro = "Erro ao cadastrar. Tente novamente.";
+            // Insere a falta no banco de dados
+            $query = "INSERT INTO faltas (funcionario_id, dataFaltas, motivoFaltas) VALUES (?, ?, ?)";
+            $stmt = $conn->prepare($query);
+            $stmt->bind_param("iss", $funcionario_id, $data, $motivo);
         }
+    }
+
+    // Executa a query e verifica se a operação foi bem-sucedida
+    if (isset($stmt) && $stmt->execute()) {
+        $sucesso = "Falta/Folga cadastrada com sucesso!";
+    } else {
+        $erro = "Erro ao cadastrar. Tente novamente.";
     }
 }
 
@@ -56,9 +67,7 @@ if ($result_funcionario->num_rows > 0) {
 <div class="container">
     <h1>Cadastrar Falta/Folga para <?= htmlspecialchars($funcionario['nome']) ?></h1>
     <a href="/gerenciamento">
-        <button>
-            Voltar a Listagem
-        </button>
+        <button>Voltar a Listagem</button>
     </a>
 
     <?php if (isset($erro)): ?>
@@ -70,20 +79,34 @@ if ($result_funcionario->num_rows > 0) {
     <?php endif; ?>
 
     <form action="" method="post">
-        <div class="form-group">
-            <label for="data">Data:</label>
-            <input type="date" id="data" name="data" required>
-        </div>
-
+        <!-- Campo Tipo primeiro -->
         <div class="form-group">
             <label for="tipo">Tipo:</label>
-            <select id="tipo" name="tipo" required>
+            <select id="tipo" name="tipo" required onchange="toggleDateFields()">
                 <option value="">Selecione</option>
                 <option value="falta">Falta</option>
                 <option value="folga">Folga</option>
             </select>
         </div>
 
+        <!-- Campo Data único para Falta -->
+        <div class="form-group" id="data-falta">
+            <label for="data">Data:</label>
+            <input type="date" id="data" name="data">
+        </div>
+
+        <!-- Campos Data Início e Data Fim para Folga -->
+        <div class="form-group" id="data-folga" style="display:none;">
+            <label for="dataInicio">Data Início:</label>
+            <input type="date" id="dataInicio" name="dataInicio">
+        </div>
+
+        <div class="form-group" id="data-fim" style="display:none;">
+            <label for="dataFim">Data Fim:</label>
+            <input type="date" id="dataFim" name="dataFim">
+        </div>
+
+        <!-- Campo Motivo -->
         <div class="form-group">
             <label for="motivo">Motivo:</label>
             <input type="text" id="motivo" name="motivo" required>
@@ -92,3 +115,27 @@ if ($result_funcionario->num_rows > 0) {
         <button type="submit" class="btn">Cadastrar</button>
     </form>
 </div>
+
+<script>
+    function toggleDateFields() {
+        const tipo = document.getElementById('tipo').value;
+        const dataFaltaField = document.getElementById('data-falta');
+        const dataFolgaField = document.getElementById('data-folga');
+        const dataFimField = document.getElementById('data-fim');
+
+        if (tipo === 'folga') {
+            dataFaltaField.style.display = 'none';  // Esconde o campo 'Data' único
+            dataFolgaField.style.display = 'block';  // Mostra 'Data Início'
+            dataFimField.style.display = 'block';    // Mostra 'Data Fim'
+        } else if (tipo === 'falta') {
+            dataFaltaField.style.display = 'block';  // Mostra o campo 'Data' único
+            dataFolgaField.style.display = 'none';   // Esconde 'Data Início'
+            dataFimField.style.display = 'none';     // Esconde 'Data Fim'
+        } else {
+            // Se nenhum tipo estiver selecionado, esconde ambos
+            dataFaltaField.style.display = 'none';
+            dataFolgaField.style.display = 'none';
+            dataFimField.style.display = 'none';
+        }
+    }
+</script>

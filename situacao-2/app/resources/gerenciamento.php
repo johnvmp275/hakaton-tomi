@@ -166,6 +166,7 @@ $result = $stmt->get_result();
                 <th>ID</th>
                 <th>Nome do Departamento</th>
                 <th>Número de Funcionários</th>
+                <th>Ações</th>
             </tr>
         </thead>
         <tbody>
@@ -175,14 +176,21 @@ $result = $stmt->get_result();
                         <td><?= $departamento['id'] ?></td>
                         <td><?= htmlspecialchars($departamento['nome']) ?></td>
                         <td><?= $departamento['num_funcionarios'] ?></td>
+                        <td>
+                            <!-- Botão para ver funcionários do departamento -->
+                            <a href="verFuncionarios?id=<?= $departamento['id'] ?>" class="btn btn-ver-funcionarios">
+                                <button>
+                                    <span class="material-symbols-outlined">visibility</span> Ver Funcionários
+                                </button>
+                            </a>
+                        </td>
                     </tr>
                 <?php endwhile; ?>
             <?php else: ?>
                 <tr>
-                    <td colspan="3">Nenhum departamento encontrado.</td>
+                    <td colspan="4">Nenhum departamento encontrado.</td>
                 </tr>
             <?php endif; ?>
         </tbody>
     </table>
-
 </div>
