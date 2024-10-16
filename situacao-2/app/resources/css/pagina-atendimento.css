@@ -26,11 +26,13 @@
     font-size: 18px;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    justify-content: center;
 }
 
 .login-button :hover {
     background-color: #21867a;
 }
+
 
 .form-group textarea {
     height: 100px;
