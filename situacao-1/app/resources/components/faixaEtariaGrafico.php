@@ -91,10 +91,11 @@ $faixaEtariaData = [
 $jsonData = json_encode($faixaEtariaData);
 ?>
 
-<div>
-    <div class="form-group" style="max-width:200px; margin-top: 50px;">
-        <input type="date" id="dataAnoAtendimento" name="dataAnoAtendimento" value="" onchange="enviarDataAnoAtendimento()">
-    </div>
+<div class="form-group">
+    <form class="pesquisar" style="max-width:400px;" method="get">
+        <input type="text" name="dataAnoAtendimento" class="form-control" placeholder="Ano Atendimento">
+        <button class="btn" type="submit">Enviar</button>
+    </form>
     <canvas id="faixaEtaria" style="max-height: 360px; max-width: 900px;"></canvas>
 </div>
 

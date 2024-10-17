@@ -158,6 +158,7 @@ main {
   width: 240px;
   height: 132px;
   color: white;
+  justify-content: center;
 }
 
 .subtitle{

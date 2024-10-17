@@ -3,13 +3,18 @@ require('.\app\Database\connect.php');
 
 // Inicializa as variáveis para armazenar os dados
 $funcionarioNome = '';
-$salario = '';
+$salario = 0.0;
 $resultado = '';
 
 // Verifica se o formulário foi enviado
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Recebe o nome do funcionário
-    $funcionarioNome = $_POST['funcionario'];
+    if (isset($_POST['funcionario'])) {
+        $funcionarioNome = $_POST['funcionario'];
+    } else {
+        echo "Erro: Funcionário não selecionado.";
+        exit;
+    }
 
     // Consulta o salário do funcionário com base no nome
     $sql = "SELECT salario FROM funcionarios WHERE nome = ?";
@@ -19,6 +24,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt->bind_result($salario);
     $stmt->fetch();
     $stmt->close();
+
+    // Certifica-se que o salário seja um número
+    $salario = floatval($salario);
+
+    // Verifica se o salário foi retornado corretamente
+    if (!$salario) {
+        echo "Erro: Salário não encontrado.";
+        exit;
+    }
 
     // Calcular PLR
     $porcentagem = 65; // Percentual padrão
@@ -41,7 +55,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Exibe os resultados
     $resultado = "
-        <h2>Resultados</h2>
+        <h2 class='titulo subtitle'>Resultados</h2>
         PLR: R$ " . number_format($plr, 2) . "<br>
         Total a receber: R$ " . number_format($total, 2) . "
     ";
@@ -51,8 +65,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <div class="container">
     <h1 class="titulo">Calculadora de PLR</h1>
     <form method="post" action="" class="form-group">
-        <label for="funcionario">Funcionário: <?php echo htmlspecialchars($funcionarioNome); ?></label>
-        <select id="lista-funcionarios">
+        <label for="funcionario">Funcionário: </label>
+        <select id="lista-funcionarios" name="funcionario">
             <?php
             // Selecionar funcionário
             $sql = "SELECT id, nome FROM funcionarios";
@@ -60,7 +74,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             // Loop para exibir cada funcionário na lista de opções
             if ($result->num_rows > 0) {
                 while ($row = $result->fetch_assoc()) {
-                    echo "<option value='" . htmlspecialchars($row['nome']) . "'>" .$row['nome']."</option>";
+                    echo "<option value='" . htmlspecialchars($row['nome']) . "'>" . htmlspecialchars($row['nome']) . "</option>";
                 }
             } else {
                 echo "<option value=''>Nenhum funcionário encontrado</option>";

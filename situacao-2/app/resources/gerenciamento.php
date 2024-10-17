@@ -194,4 +194,5 @@ $result = $stmt->get_result();
             </tbody>
         </table>
     </div>
+
 </div>

@@ -46,8 +46,8 @@ if ($result_funcionario->num_rows > 0) {
     </a>
 
     <div class="tab">
-        <button class="tablinks" onclick="openCity(event, 'faltas')">Funcionários</button>
-        <button class="tablinks" onclick="openCity(event, 'folgas')">Departamentos</button>
+        <button class="tablinks" onclick="openCity(event, 'faltas')">Faltas</button>
+        <button class="tablinks" onclick="openCity(event, 'folgas')">Folgas</button>
     </div>
 
     <div id="faltas" class="tabcontent">

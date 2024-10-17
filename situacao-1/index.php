@@ -45,6 +45,7 @@ $tituloPagina = ucfirst(str_replace('-', ' ', $rota));
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="./app/resources/css/style.css">
+  <link rel="shortcut icon" href="./app/resources/img/enfermagem-icon.ico" type="image/x-icon">
   <link rel="stylesheet"
     href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
 

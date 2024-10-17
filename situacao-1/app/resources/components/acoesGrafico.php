@@ -17,7 +17,8 @@ if (is_numeric($local_id)) {
         INNER JOIN atendimentos ON acoes.id_acao = atendimentos.id_acao
         INNER JOIN locais_atendimento ON atendimentos.localAtendimento = locais_atendimento.id_local
         WHERE locais_atendimento.id_local = ?
-        GROUP BY acoes.id_acao, acoes.nome_acao";
+        GROUP BY acoes.id_acao, acoes.nome_acao
+        LIMIT 5";
     $stmt = $conn->prepare($sql_count);
     $stmt->bind_param("i", $local_id);
 } else {
@@ -29,7 +30,8 @@ if (is_numeric($local_id)) {
             COUNT(atendimentos.idAtendimento) AS total_atendimentos
         FROM acoes
         INNER JOIN atendimentos ON acoes.id_acao = atendimentos.id_acao
-        GROUP BY acoes.id_acao, acoes.nome_acao";
+        GROUP BY acoes.id_acao, acoes.nome_acao
+        LIMIT 5";
     $stmt = $conn->prepare($sql_count);
 }
 

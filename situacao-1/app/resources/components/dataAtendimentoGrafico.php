@@ -65,10 +65,11 @@ if ($result) {
 $jsonData = json_encode(array_values($data));
 ?>
 
-<div>
-    <div class="form-group" style="max-width:200px;">
-        <input type="date" id="dataAno" name="dataAno" value="" onchange="enviarData()">
-    </div>
+<div class="form-group">
+    <form class="pesquisar" style="max-width:400px;" method="get">
+        <input type="text" name="dataAno" class="form-control" placeholder="Data Atendimento">
+        <button class="btn" type="submit">Enviar</button>
+    </form>
     <canvas id="dataAtendimento" style="height: 360px; max-width: 100%;"></canvas>
 </div>
 
@@ -78,27 +79,27 @@ $jsonData = json_encode(array_values($data));
         const ctx2 = document.getElementById('dataAtendimento');
 
         new Chart(ctx2, {
-            type: 'bar', 
+            type: 'bar',
             data: {
                 labels: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'], // Meses
                 datasets: [{
-                    label: 'Total de Atendimentos por Mês (<?php echo $dataAno; ?>)', 
+                    label: 'Total de Atendimentos por Mês (<?php echo $dataAno; ?>)',
                     data: atendimentosPorMes,
-                    borderWidth: 1, 
+                    borderWidth: 1,
                     backgroundColor: '#FF6384',
-                    borderColor: '#FF6384' 
+                    borderColor: '#FF6384'
                 }]
             },
             options: {
                 scales: {
                     y: {
-                        beginAtZero: true 
+                        beginAtZero: true
                     }
                 },
                 plugins: {
                     title: {
                         display: true,
-                        text: 'Total de Atendimentos por Mês (<?php echo $dataAno; ?>)' 
+                        text: 'Total de Atendimentos por Mês (<?php echo $dataAno; ?>)'
                     }
                 }
             }
