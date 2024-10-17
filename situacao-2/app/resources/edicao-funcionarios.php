@@ -53,43 +53,50 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 ?>
 
-<h1>Editar Funcionário</h1>
-<a href="/gerenciamento">
-    <button>
-        Voltar a Listagem
-    </button>
-</a>
+<div class="container">
+    <h1>Editar Funcionário</h1>
+    <a href="/gerenciamento">
+        <button type="submit" class="btn">Voltar a Listagem</button>
+    </a>
 
-<!-- Exibe a mensagem de sucesso ou erro -->
-<p id="mensagem"><?= $mensagem ?></p>
+    <!-- Exibe a mensagem de sucesso ou erro -->
+    <p id="mensagem"><?= $mensagem ?></p>
 
-<form id="form-editar" method="POST" class="form-group">
-    <label for="nome">Nome:</label>
-    <input class="form-control" type="text" id="nome" name="nome" value="<?= htmlspecialchars($funcionario['nome']) ?>" required>
+    <form id="form-editar" method="POST">
+        <div class="form-group">
+            <label for="nome">Nome:</label>
+            <input class="form-control" type="text" id="nome" name="nome" value="<?= htmlspecialchars($funcionario['nome']) ?>" required>
+        </div>
 
-    <label for="dataNasc">Data de Nascimento:</label>
-    <input class="form-control" type="date" id="dataNasc" name="dataNasc" value="<?= htmlspecialchars($funcionario['dataNasc']) ?>" required>
+        <div class="form-group">
+            <label for="dataNasc">Data de Nascimento:</label>
+            <input class="form-control" type="date" id="dataNasc" name="dataNasc" value="<?= htmlspecialchars($funcionario['dataNasc']) ?>" required>
+        </div>
 
-    <label for="salario">Salário:</label>
-    <input class="form-control" type="number" id="salario" name="salario" step="0.01" value="<?= htmlspecialchars($funcionario['salario']) ?>" required>
+        <div class="form-group">
+            <label for="salario">Salário:</label>
+            <input class="form-control" type="number" id="salario" name="salario" step="0.01" value="<?= htmlspecialchars($funcionario['salario']) ?>" required>
+        </div>
 
-    <label for="departamento_id">Departamento:</label>
-    <select class="form-control" id="departamento_id" name="departamento_id" required>
-        <?php
-        // Consulta para buscar todos os departamentos
-        $result = $conn->query("SELECT * FROM departamentos");
+        <div class="form-group">
+            <label for="departamento_id">Departamento:</label>
+            <select class="form-control" id="departamento_id" name="departamento_id" required>
+                <?php
+                // Consulta para buscar todos os departamentos
+                $result = $conn->query("SELECT * FROM departamentos");
 
-        // Itera sobre os departamentos para criar o dropdown
-        while ($departamento = $result->fetch_assoc()) {
-            // Verifica se o departamento é o mesmo do funcionário atual
-            $selected = $departamento['id'] == $funcionario['departamento_id'] ? 'selected' : '';
-            echo "<option value='{$departamento['id']}' $selected>{$departamento['nome']}</option>";
-        }
-        ?>
-    </select>
-
-    <input class="form-control bnt" type="submit" value="Salvar Alterações">
-</form>
+                // Itera sobre os departamentos para criar o dropdown
+                while ($departamento = $result->fetch_assoc()) {
+                    // Verifica se o departamento é o mesmo do funcionário atual
+                    $selected = $departamento['id'] == $funcionario['departamento_id'] ? 'selected' : '';
+                    echo "<option value='{$departamento['id']}' $selected>{$departamento['nome']}</option>";
+                }
+                ?>
+            </select>
+        </div>
+        <button type="submit">Salvar Alterações</button>
+    </form>
+</div>
 
 <script>
     document.getElementById('form-editar').addEventListener('submit', function(event) {

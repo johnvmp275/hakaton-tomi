@@ -11,7 +11,6 @@ $ate_30_count = 0;
 $ate_40_count = 0;
 $ate_60_count = 0;
 $ate_80_count = 0;
-$acima_80_count = 0;
 
 // Consulta para obter a data de nascimento e calcular a idade, filtrando pelo ano e departamento
 if (is_numeric($departamento_id)) {
@@ -51,8 +50,6 @@ while ($row = $result->fetch_assoc()) {
             $ate_60_count++;
         } elseif ($idade >= 61 && $idade <= 80) {
             $ate_80_count++;
-        } elseif ($idade > 80) {
-            $acima_80_count++;
         }
     }
 }
@@ -67,7 +64,6 @@ $faixaEtariaData = [
     'Dos 31 até 40' => $ate_40_count,
     'Dos 41 até 60' => $ate_60_count, // Corrigido aqui também
     'Dos 61 até 80' => $ate_80_count,
-    'Acima de 80' => $acima_80_count
 ];
 $jsonData = json_encode($faixaEtariaData);
 
@@ -83,7 +79,7 @@ $result = $stmt->get_result();
 
 <div>
     <form method="GET" action="">
-        <div class="form-group" style="margin-top:10px">
+        <div class="form-group">
             <label for="departamento_id">Selecione o Departamento:</label>
             <select name="departamento_id" id="departamento_id" class="form-control" onchange="this.form.submit()">
                 <option value="">Todos</option>

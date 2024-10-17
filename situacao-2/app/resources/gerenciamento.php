@@ -78,119 +78,120 @@ $stmt->execute();
 $result = $stmt->get_result();
 ?>
 
-
-<div class="tab">
-    <button class="tablinks" onclick="openCity(event, 'funcionarios')">Funcionários</button>
-    <button class="tablinks" onclick="openCity(event, 'departamentos')">Departamentos</button>
-</div>
-
-<div id="funcionarios" class="tabcontent">
-    <h1>Lista de Funcionários</h1>
-    <div class="search-container">
-        <form action="" method="get" class="pesquisar">
-            <input type="text" name="searchFuncionarios" value="<?= htmlspecialchars($searchFuncionarios) ?>" placeholder="Pesquisar por nome, departamento ou salário..." class="form-control">
-            <button type="submit">Buscar</button>
-        </form>
-    </div>
-    <table class="funcionarios">
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Nome</th>
-                <th>Nascimento</th>
-                <th>Salário</th>
-                <th>Departamento</th>
-                <th>Ações</th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php if (count($funcionarios) > 0): ?>
-                <?php foreach ($funcionarios as $funcionario): ?>
-                    <tr>
-                        <td><?= $funcionario['id'] ?></td>
-                        <td><?= $funcionario['nome'] ?></td>
-                        <td><?= $funcionario['dataNasc'] ?></td>
-                        <td>R$ <?= number_format($funcionario['salario'], 2, ',', '.') ?></td>
-                        <td><?= $funcionario['departamento'] ?></td>
-                        <td>
-                            <!-- Botão para ver o histórico do funcionário -->
-                            <a href="historico?id=<?= $funcionario['id'] ?>" class="btn btn-historico">
-                                <button>
-                                    <span class="material-symbols-outlined">
-                                        history
-                                    </span>
-                                </button>
-                            </a>
-
-                            <!-- Botão para cadastrar faltas e folgas -->
-                            <a href="cadastrar-faltas-folgas?id=<?= $funcionario['id'] ?>" class="btn btn-faltas">
-                                <button>
-                                    <span class="material-symbols-outlined">
-                                        visibility
-                                    </span>
-                                </button>
-                            </a>
-
-                            <a href="edicao-funcionarios?id=<?= $funcionario['id'] ?>" class="btn btn-faltas">
-                                <button>
-                                    <span class="material-symbols-outlined">
-                                        edit
-                                    </span>
-                                </button>
-                            </a>
-                        </td>
-                    </tr>
-                <?php endforeach; ?>
-            <?php else: ?>
-                <tr>
-                    <td colspan="6">Nenhum funcionário cadastrado.</td>
-                </tr>
-            <?php endif; ?>
-        </tbody>
-    </table>
-</div>
-
-<div id="departamentos" class="tabcontent">
-    <h1>Departamentos</h1>
-
-    <div class="search-container">
-        <form action="" method="get" class="pesquisar">
-            <input type="text" name="searchDepartamentos" value="<?= htmlspecialchars($searchDepartamentos) ?>" placeholder="Pesquisar departamento..." class="form-control">
-            <button type="submit">Buscar</button>
-        </form>
+<div class="container">
+    <div class="tab">
+        <button class="tablinks" onclick="openCity(event, 'funcionarios')">Funcionários</button>
+        <button class="tablinks" onclick="openCity(event, 'departamentos')">Departamentos</button>
     </div>
 
-    <table class="departamentos">
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Nome do Departamento</th>
-                <th>Número de Funcionários</th>
-                <th>Ações</th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php if ($result->num_rows > 0): ?>
-                <?php while ($departamento = $result->fetch_assoc()): ?>
-                    <tr>
-                        <td><?= $departamento['id'] ?></td>
-                        <td><?= htmlspecialchars($departamento['nome']) ?></td>
-                        <td><?= $departamento['num_funcionarios'] ?></td>
-                        <td>
-                            <!-- Botão para ver funcionários do departamento -->
-                            <a href="verFuncionarios?id=<?= $departamento['id'] ?>" class="btn btn-ver-funcionarios">
-                                <button>
-                                    <span class="material-symbols-outlined">visibility</span> 
-                                </button>
-                            </a>
-                        </td>
-                    </tr>
-                <?php endwhile; ?>
-            <?php else: ?>
+    <div id="funcionarios" class="tabcontent">
+        <h1>Lista de Funcionários</h1>
+        <div class="search-container">
+            <form action="" method="get" class="pesquisar">
+                <input type="text" name="searchFuncionarios" value="<?= htmlspecialchars($searchFuncionarios) ?>" placeholder="Pesquisar por nome, departamento ou salário..." class="form-control">
+                <button type="submit">Buscar</button>
+            </form>
+        </div>
+        <table class="funcionarios">
+            <thead>
                 <tr>
-                    <td colspan="4">Nenhum departamento encontrado.</td>
+                    <th>ID</th>
+                    <th>Nome</th>
+                    <th>Nascimento</th>
+                    <th>Salário</th>
+                    <th>Departamento</th>
+                    <th>Ações</th>
                 </tr>
-            <?php endif; ?>
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+                <?php if (count($funcionarios) > 0): ?>
+                    <?php foreach ($funcionarios as $funcionario): ?>
+                        <tr>
+                            <td><?= $funcionario['id'] ?></td>
+                            <td><?= $funcionario['nome'] ?></td>
+                            <td><?= $funcionario['dataNasc'] ?></td>
+                            <td>R$ <?= number_format($funcionario['salario'], 2, ',', '.') ?></td>
+                            <td><?= $funcionario['departamento'] ?></td>
+                            <td>
+                                <!-- Botão para ver o histórico do funcionário -->
+                                <a href="historico?id=<?= $funcionario['id'] ?>" class="btn btn-historico">
+                                    <button>
+                                        <span class="material-symbols-outlined">
+                                            history
+                                        </span>
+                                    </button>
+                                </a>
+
+                                <!-- Botão para cadastrar faltas e folgas -->
+                                <a href="cadastrar-faltas-folgas?id=<?= $funcionario['id'] ?>" class="btn btn-faltas">
+                                    <button>
+                                        <span class="material-symbols-outlined">
+                                            visibility
+                                        </span>
+                                    </button>
+                                </a>
+
+                                <a href="edicao-funcionarios?id=<?= $funcionario['id'] ?>" class="btn btn-faltas">
+                                    <button>
+                                        <span class="material-symbols-outlined">
+                                            edit
+                                        </span>
+                                    </button>
+                                </a>
+                            </td>
+                        </tr>
+                    <?php endforeach; ?>
+                <?php else: ?>
+                    <tr>
+                        <td colspan="6">Nenhum funcionário cadastrado.</td>
+                    </tr>
+                <?php endif; ?>
+            </tbody>
+        </table>
+    </div>
+
+    <div id="departamentos" class="tabcontent">
+        <h1>Departamentos</h1>
+
+        <div class="search-container">
+            <form action="" method="get" class="pesquisar">
+                <input type="text" name="searchDepartamentos" value="<?= htmlspecialchars($searchDepartamentos) ?>" placeholder="Pesquisar departamento..." class="form-control">
+                <button type="submit">Buscar</button>
+            </form>
+        </div>
+
+        <table class="departamentos">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nome do Departamento</th>
+                    <th>Número de Funcionários</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php if ($result->num_rows > 0): ?>
+                    <?php while ($departamento = $result->fetch_assoc()): ?>
+                        <tr>
+                            <td><?= $departamento['id'] ?></td>
+                            <td><?= htmlspecialchars($departamento['nome']) ?></td>
+                            <td><?= $departamento['num_funcionarios'] ?></td>
+                            <td>
+                                <!-- Botão para ver funcionários do departamento -->
+                                <a href="verFuncionarios?id=<?= $departamento['id'] ?>" class="btn btn-ver-funcionarios">
+                                    <button>
+                                        <span class="material-symbols-outlined">visibility</span>
+                                    </button>
+                                </a>
+                            </td>
+                        </tr>
+                    <?php endwhile; ?>
+                <?php else: ?>
+                    <tr>
+                        <td colspan="4">Nenhum departamento encontrado.</td>
+                    </tr>
+                <?php endif; ?>
+            </tbody>
+        </table>
+    </div>
 </div>
