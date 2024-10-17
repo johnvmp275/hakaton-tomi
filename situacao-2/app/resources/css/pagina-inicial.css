@@ -16,6 +16,7 @@
     align-items: center;
     width: 100%;
     max-width: 370px;
+    gap: 10px;
 }
 
 .pesquisar button{
@@ -56,11 +57,15 @@ table tr td{
 }
 
 .departamentos tr{
-    grid-template-columns: .2fr repeat(3, 1fr);
+    grid-template-columns: .2fr 1fr .5fr .2fr;
 }
 
 .table-data tr{
     grid-template-columns: .2fr repeat(2, 1fr);
+}
+
+.departamento-funcionarios tr{
+    grid-template-columns: repeat(2, 1fr);
 }
 
 table .icon{

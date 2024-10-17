@@ -54,7 +54,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 ?>
 
 <div class="container">
-    <h1>Editar Funcionário</h1>
+    <h1 class="titulo">Editar Funcionário</h1>
     <a href="/gerenciamento">
         <button type="submit" class="btn">Voltar a Listagem</button>
     </a>
@@ -62,7 +62,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <!-- Exibe a mensagem de sucesso ou erro -->
     <p id="mensagem"><?= $mensagem ?></p>
 
-    <form id="form-editar" method="POST">
+    <form id="form-editar" class="form-group" method="POST">
         <div class="form-group">
             <label for="nome">Nome:</label>
             <input class="form-control" type="text" id="nome" name="nome" value="<?= htmlspecialchars($funcionario['nome']) ?>" required>

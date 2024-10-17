@@ -64,7 +64,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 });
-
 const tabcontent = document.getElementsByClassName("tabcontent");
 
 if (tabcontent) {
@@ -83,10 +82,35 @@ if (tabcontent) {
 
     document.getElementById(cityName).style.display = "block";
     evt.currentTarget.className += " active";
+
+    localStorage.setItem("activeTab", cityName);
   }
 
   document.addEventListener("DOMContentLoaded", () => {
-    tabcontent[0].style.display = "block";
-    tablinks[0].className += " active";
+    const savedTab = localStorage.getItem("activeTab");
+    let isValidTab = false;
+
+    const allTabContentDivs = document.querySelectorAll('.tabcontent');
+
+    allTabContentDivs.forEach((tab) => {
+      if (tab.id === savedTab) {
+        isValidTab = true; 
+      }
+    });
+
+    if (isValidTab) {
+      const tabToShow = document.getElementById(savedTab);
+      if (tabToShow) {
+        tabToShow.style.display = "block";
+        for (let i = 0; i < tablinks.length; i++) {
+          if (tablinks[i].getAttribute("onclick").includes(savedTab)) {
+            tablinks[i].className += " active";
+          }
+        }
+      }
+    } else {
+      tabcontent[0].style.display = "block";
+      tablinks[0].className += " active";
+    }
   });
 }

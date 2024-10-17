@@ -35,64 +35,35 @@ if (isset($_GET['id'])) {
 }
 ?>
 
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <div class="container">
-    <title>Funcionários do Departamento - <?= htmlspecialchars($departamento['nome']) ?></title>
-    <style>
-        table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-        table, th, td {
-            border: 1px solid black;
-        }
-        th, td {
-            padding: 10px;
-            text-align: left;
-        }
-        th {
-            background-color: #f2f2f2;
-        }
-    </style>
-</head>
-<body>
+<div class="container">
 
-<h1>Funcionários do Departamento: <?= htmlspecialchars($departamento['nome']) ?></h1>
+    <h1 class="titulo">Departamento: <?= htmlspecialchars($departamento['nome']) ?></h1>
 
-<a href="/gerenciamento">
-        <button>Voltar ao Gerenciamento</button>
+    <a href="/gerenciamento">
+        <button class="btn">Voltar a Listagem</button>
     </a>
 
-<table>
-    <thead>
-        <tr>
-            <th>Nome</th>
-            <th>Salário</th>
-        </tr>
-    </thead>
-    <tbody>
-        <?php if (count($funcionarios) > 0): ?>
-            <?php foreach ($funcionarios as $funcionario): ?>
-                <tr>
-                    <td><?= htmlspecialchars($funcionario['nome']) ?></td>
-                    <td>R$ <?= number_format($funcionario['salario'], 2, ',', '.') ?></td>
-                </tr>
-            <?php endforeach; ?>
-        <?php else: ?>
+    <table class="departamento-funcionarios">
+        <thead>
             <tr>
-                <td colspan="3">Nenhum funcionário encontrado para este departamento.</td>
+                <th>Nome</th>
+                <th>Salário</th>
             </tr>
-        <?php endif; ?>
-    </tbody>
-</table>
-
-<a href="gerenciar-departamentos">Voltar aos Departamentos</a>
+        </thead>
+        <tbody>
+            <?php if (count($funcionarios) > 0): ?>
+                <?php foreach ($funcionarios as $funcionario): ?>
+                    <tr>
+                        <td><?= htmlspecialchars($funcionario['nome']) ?></td>
+                        <td>R$ <?= number_format($funcionario['salario'], 2, ',', '.') ?></td>
+                    </tr>
+                <?php endforeach; ?>
+            <?php else: ?>
+                <tr>
+                    <td>Nenhum funcionário encontrado para este departamento.</td>
+                </tr>
+            <?php endif; ?>
+        </tbody>
+    </table>
 
 </div>
-
-</body>
-</html>

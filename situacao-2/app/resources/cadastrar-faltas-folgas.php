@@ -65,9 +65,9 @@ if ($result_funcionario->num_rows > 0) {
 ?>
 
 <div class="container">
-    <h1>Cadastrar Falta/Folga para <?= htmlspecialchars($funcionario['nome']) ?></h1>
+    <h1 class="titulo">Cadastrar Ausência (<?= htmlspecialchars($funcionario['nome']) ?>)</h1>
     <a href="/gerenciamento">
-        <button>Voltar a Listagem</button>
+        <button class="btn">Voltar a Listagem</button>
     </a>
 
     <?php if (isset($erro)): ?>
@@ -78,11 +78,11 @@ if ($result_funcionario->num_rows > 0) {
         <p class="msg-sucesso"><?= $sucesso ?></p>
     <?php endif; ?>
 
-    <form action="" method="post">
+    <form method="post" class="form-group">
         <!-- Campo Tipo primeiro -->
         <div class="form-group">
             <label for="tipo">Tipo:</label>
-            <select id="tipo" name="tipo" required onchange="toggleDateFields()">
+            <select class="form-control" id="tipo" name="tipo" required onchange="toggleDateFields()">
                 <option value="">Selecione</option>
                 <option value="falta">Falta</option>
                 <option value="folga">Folga</option>
@@ -92,24 +92,24 @@ if ($result_funcionario->num_rows > 0) {
         <!-- Campo Data único para Falta -->
         <div class="form-group" id="data-falta">
             <label for="data">Data:</label>
-            <input type="date" id="data" name="data">
+            <input class="form-control" type="date" id="data" name="data">
         </div>
 
         <!-- Campos Data Início e Data Fim para Folga -->
         <div class="form-group" id="data-folga" style="display:none;">
             <label for="dataInicio">Data Início:</label>
-            <input type="date" id="dataInicio" name="dataInicio">
+            <input class="form-control" type="date" id="dataInicio" name="dataInicio">
         </div>
 
         <div class="form-group" id="data-fim" style="display:none;">
             <label for="dataFim">Data Fim:</label>
-            <input type="date" id="dataFim" name="dataFim">
+            <input class="form-control" type="date" id="dataFim" name="dataFim">
         </div>
 
         <!-- Campo Motivo -->
         <div class="form-group">
             <label for="motivo">Motivo:</label>
-            <input type="text" id="motivo" name="motivo" required>
+            <input class="form-control" type="text" id="motivo" name="motivo" required>
         </div>
 
         <button type="submit" class="btn">Cadastrar</button>

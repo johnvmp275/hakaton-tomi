@@ -85,10 +85,10 @@ $result = $stmt->get_result();
     </div>
 
     <div id="funcionarios" class="tabcontent">
-        <h1>Lista de Funcionários</h1>
+        <h1 class="titulo">Lista de Funcionários</h1>
         <div class="search-container">
             <form action="" method="get" class="pesquisar">
-                <input type="text" name="searchFuncionarios" value="<?= htmlspecialchars($searchFuncionarios) ?>" placeholder="Pesquisar por nome, departamento ou salário..." class="form-control">
+                <input type="text" name="searchFuncionarios" value="<?= htmlspecialchars($searchFuncionarios) ?>" placeholder="Pesquisar funcionários geral" class="form-control">
                 <button type="submit">Buscar</button>
             </form>
         </div>
@@ -114,7 +114,7 @@ $result = $stmt->get_result();
                             <td><?= $funcionario['departamento'] ?></td>
                             <td>
                                 <!-- Botão para ver o histórico do funcionário -->
-                                <a href="historico?id=<?= $funcionario['id'] ?>" class="btn btn-historico">
+                                <a href="historico?id=<?= $funcionario['id'] ?>" class="">
                                     <button>
                                         <span class="material-symbols-outlined">
                                             history
@@ -123,7 +123,7 @@ $result = $stmt->get_result();
                                 </a>
 
                                 <!-- Botão para cadastrar faltas e folgas -->
-                                <a href="cadastrar-faltas-folgas?id=<?= $funcionario['id'] ?>" class="btn btn-faltas">
+                                <a href="cadastrar-faltas-folgas?id=<?= $funcionario['id'] ?>" class="">
                                     <button>
                                         <span class="material-symbols-outlined">
                                             visibility
@@ -131,7 +131,7 @@ $result = $stmt->get_result();
                                     </button>
                                 </a>
 
-                                <a href="edicao-funcionarios?id=<?= $funcionario['id'] ?>" class="btn btn-faltas">
+                                <a href="edicao-funcionarios?id=<?= $funcionario['id'] ?>" class="">
                                     <button>
                                         <span class="material-symbols-outlined">
                                             edit
@@ -151,12 +151,12 @@ $result = $stmt->get_result();
     </div>
 
     <div id="departamentos" class="tabcontent">
-        <h1>Departamentos</h1>
+        <h1 class="titulo">Departamentos</h1>
 
         <div class="search-container">
             <form action="" method="get" class="pesquisar">
-                <input type="text" name="searchDepartamentos" value="<?= htmlspecialchars($searchDepartamentos) ?>" placeholder="Pesquisar departamento..." class="form-control">
-                <button type="submit">Buscar</button>
+                <input type="text" name="searchDepartamentos" value="<?= htmlspecialchars($searchDepartamentos) ?>" placeholder="Pesquisar departamento" class="form-control">
+                <button class="btn" type="submit">Buscar</button>
             </form>
         </div>
 
@@ -178,7 +178,7 @@ $result = $stmt->get_result();
                             <td><?= $departamento['num_funcionarios'] ?></td>
                             <td>
                                 <!-- Botão para ver funcionários do departamento -->
-                                <a href="verFuncionarios?id=<?= $departamento['id'] ?>" class="btn btn-ver-funcionarios">
+                                <a href="verFuncionarios?id=<?= $departamento['id'] ?>">
                                     <button>
                                         <span class="material-symbols-outlined">visibility</span>
                                     </button>

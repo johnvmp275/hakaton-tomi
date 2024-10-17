@@ -16,7 +16,7 @@
     align-items: center;
     width: 100%;
     max-width: 370px;
-    
+    gap: 10px;
 }
 
 .pesquisar button{

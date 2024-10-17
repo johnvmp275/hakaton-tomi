@@ -12,7 +12,7 @@ $result_locais = $conn->query($sql_locais);
 <div class="container">
     <div class="form-double">
         <h3 for="local_atendimento">Selecione o Local de Atendimento:</h3>
-        <select name="local_atendimento" id="local_atendimento" onchange="this.form.submit()" style="max-width:200px; margin-top: 8px">
+        <select name="local_atendimento" id="local_atendimento" onchange="this.form.submit()" style="max-width:200px;">
             <option value="todos">Todos</option>
             <?php
             if ($result_locais->num_rows > 0) {

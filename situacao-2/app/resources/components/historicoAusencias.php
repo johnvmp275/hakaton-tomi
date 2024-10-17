@@ -18,7 +18,7 @@ if (is_numeric($funcionario_id)) {
     $stmt_faltas->bind_param("i", $funcionario_id);
     $stmt_faltas->execute();
     $result_faltas = $stmt_faltas->get_result();
-    
+
     if ($row_faltas = $result_faltas->fetch_assoc()) {
         $faltas = $row_faltas['total_faltas'];
     }
@@ -45,26 +45,18 @@ $conn->close();
 ?>
 
 <div class="form-row">
-<form method="GET" action="">
-    <div class="form-group">
-        <label for="funcionario_id">Selecione o Funcionário (ID):</label>
-        <input type="number" name="funcionario_id" id="funcionario_id" class="form-control" value="<?php echo htmlspecialchars($funcionario_id); ?>" placeholder="Digite o ID do funcionário" required>
-        <button type="submit" class="btn btn-primary">Consultar</button>
-    </div>
-</form>
+    <div class="form-row2">
+        <div class="status-card form-group" style="background-color: #1D9EF5">
+            <h3>Faltas</h3>
+            <p data-numero>
+                <?php echo $faltas; ?>
+            </p>
+        </div>
 
-<div class="form-row2">
-    <div class="status-card form-group" style="background-color: #1D9EF5">
-        <h3>Faltas</h3>
-        <p data-numero>
-            <?php echo $faltas; ?>
-        </p>
+        <div class="status-card form-group" style="background-color: #FF6384">
+            <h3>Folgas</h3>
+            <p data-numero>
+                <?php echo $folgas; ?>
+            </p>
+        </div>
     </div>
-
-    <div class="status-card form-group" style="background-color: #FF6384">
-        <h3>Folgas</h3>
-        <p data-numero>
-            <?php echo $folgas; ?>
-        </p>
-    </div>
-</div>

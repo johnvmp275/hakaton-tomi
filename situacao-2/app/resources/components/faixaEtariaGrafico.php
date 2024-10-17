@@ -62,18 +62,16 @@ $faixaEtariaData = [
     'Até 17' => $ate_17_count,
     'Dos 18 até 30' => $ate_30_count,
     'Dos 31 até 40' => $ate_40_count,
-    'Dos 41 até 60' => $ate_60_count, // Corrigido aqui também
+    'Dos 41 até 60' => $ate_60_count,
     'Dos 61 até 80' => $ate_80_count,
 ];
 $jsonData = json_encode($faixaEtariaData);
 
-// Agora obter a lista de departamentos
+// Lista de departamentos
 $sql_departamentos = "SELECT id, nome FROM departamentos";
 $stmt = $conn->prepare($sql_departamentos);
 $stmt->execute();
 $result = $stmt->get_result();
-
-// Não feche a conexão ainda, pois precisamos dos departamentos
 
 ?>
 
