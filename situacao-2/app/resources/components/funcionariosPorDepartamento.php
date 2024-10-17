@@ -35,7 +35,7 @@ $departamentoLabels = json_encode(array_keys($totalFuncionarios)); // Obter os n
 ?>
 
 <div>
-    <canvas id="funcionariosPorDepartamento" style="min-height: 100%; min-width: 360px;"></canvas>
+    <canvas id="funcionariosPorDepartamento" style="min-height: 360px; max-width: 360px;"></canvas>
 </div>
 
 <script>

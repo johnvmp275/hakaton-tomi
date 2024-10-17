@@ -60,7 +60,7 @@ $conn->close();
 
 
     <div class="form-group" style="max-height: 360px; max-width: 450px; margin-bottom: 100px;">
-        <label for="" class="subtitle">Atendimentos por Gênero:</label>
+        <label for="" class="subtitle titulo">Atendimentos por Gênero:</label>
         <canvas id="generoGrafico" style="margin-left:40px"></canvas>
     </div>
 

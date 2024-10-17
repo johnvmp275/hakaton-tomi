@@ -39,62 +39,70 @@ if ($result_funcionario->num_rows > 0) {
 ?>
 
 <div class="container">
-    <h1 class="titulo">Histórico de Faltas e Folgas para <?= htmlspecialchars($funcionario['nome']) ?></h1>
     <a href="/gerenciamento">
-        <button>
+        <button class="btn">
             Voltar a Listagem
         </button>
     </a>
 
-    <h2>Faltas</h2>
-    <table class="table-data">
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Data</th>
-                <th>Motivo</th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php if ($result_faltas->num_rows > 0): ?>
-                <?php while ($faltas = $result_faltas->fetch_assoc()): ?>
-                    <tr>
-                        <td><?= $faltas['idFaltas'] ?></td>
-                        <td><?= htmlspecialchars($faltas['dataFaltas']) ?></td>
-                        <td><?= htmlspecialchars($faltas['motivoFaltas']) ?></td>
-                    </tr>
-                <?php endwhile; ?>
-            <?php else: ?>
-                <tr>
-                    <td colspan="3">Nenhuma falta registrada.</td>
-                </tr>
-            <?php endif; ?>
-        </tbody>
-    </table>
+    <div class="tab">
+        <button class="tablinks" onclick="openCity(event, 'faltas')">Funcionários</button>
+        <button class="tablinks" onclick="openCity(event, 'folgas')">Departamentos</button>
+    </div>
 
-    <h2>Folgas</h2>
-    <table class="table-data">
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Data</th>
-                <th>Motivo</th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php if ($result_folgas->num_rows > 0): ?>
-                <?php while ($folga = $result_folgas->fetch_assoc()): ?>
-                    <tr>
-                        <td><?= $folga['idFolgas'] ?></td>
-                        <td><?= htmlspecialchars($folga['dataFolgas']) ?></td>
-                        <td><?= htmlspecialchars($folga['motivoFolgas']) ?></td>
-                    </tr>
-                <?php endwhile; ?>
-            <?php else: ?>
+    <div id="faltas" class="tabcontent">
+        <h2 class="titulo subtitle">Faltas</h2>
+        <table class="table-data">
+            <thead>
                 <tr>
-                    <td colspan="3">Nenhuma folga registrada.</td>
+                    <th>ID</th>
+                    <th>Data</th>
+                    <th>Motivo</th>
                 </tr>
-            <?php endif; ?>
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+                <?php if ($result_faltas->num_rows > 0): ?>
+                    <?php while ($faltas = $result_faltas->fetch_assoc()): ?>
+                        <tr>
+                            <td><?= $faltas['idFaltas'] ?></td>
+                            <td><?= htmlspecialchars($faltas['dataFaltas']) ?></td>
+                            <td><?= htmlspecialchars($faltas['motivoFaltas']) ?></td>
+                        </tr>
+                    <?php endwhile; ?>
+                <?php else: ?>
+                    <tr>
+                        <td colspan="3">Nenhuma falta registrada.</td>
+                    </tr>
+                <?php endif; ?>
+            </tbody>
+        </table>
+    </div>
+
+    <div id="folgas" class="tabcontent">
+        <h2 class="titulo subtitle">Folgas</h2>
+        <table class="table-data">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Data</th>
+                    <th>Motivo</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php if ($result_folgas->num_rows > 0): ?>
+                    <?php while ($folga = $result_folgas->fetch_assoc()): ?>
+                        <tr>
+                            <td><?= $folga['idFolgas'] ?></td>
+                            <td><?= htmlspecialchars($folga['dataFolgas']) ?></td>
+                            <td><?= htmlspecialchars($folga['motivoFolgas']) ?></td>
+                        </tr>
+                    <?php endwhile; ?>
+                <?php else: ?>
+                    <tr>
+                        <td colspan="3">Nenhuma folga registrada.</td>
+                    </tr>
+                <?php endif; ?>
+            </tbody>
+        </table>
+    </div>
 </div>

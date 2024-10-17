@@ -49,8 +49,8 @@ $stmt->close();
 $conn->close();
 ?>
 
-<div class="form-group" style=" max-width: 360px;">
-    <label for="dataAno" class="subtitle" style="width: 480px;">Atendimentos por Ação:</label>
+<div class="form-group" style=" max-width: 340px;">
+    <label for="dataAno" class="subtitle titulo" style="width: 480px;">Atendimentos por Ação:</label>
     <canvas id="acoesGrafico"></canvas>
 </div>
 

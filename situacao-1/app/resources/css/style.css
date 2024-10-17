@@ -121,6 +121,11 @@ main {
   font-size: 2em;
 }
 
+.subtitle {
+  font-size: 1.2em;
+  font-weight: 600;
+}
+
 .tab {
   overflow: hidden;
 }
@@ -150,7 +155,7 @@ main {
   margin-right: 15px;
   padding: 15px 0;
   border-radius: 8px;
-  width: 300px;
+  width: 240px;
   height: 132px;
   color: white;
 }

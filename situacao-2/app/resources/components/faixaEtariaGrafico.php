@@ -75,9 +75,8 @@ $result = $stmt->get_result();
 
 ?>
 
-<div>
-    <form method="GET" action="">
-        <div class="form-group">
+<div class="">
+    <form method="GET" action="" class="form-group">
             <label for="departamento_id">Selecione o Departamento:</label>
             <select name="departamento_id" id="departamento_id" class="form-control" onchange="this.form.submit()">
                 <option value="">Todos</option>
@@ -92,10 +91,10 @@ $result = $stmt->get_result();
                 }
                 ?>
             </select>
-        </div>
     </form>
-    <canvas id="faixaEtaria" style="max-height: 360px; min-width: 560px;"></canvas>
+    <canvas id="faixaEtaria" style="min-height: 360px; max-width: 600px;"></canvas>
 </div>
+
 
 <script>
     document.addEventListener("DOMContentLoaded", () => {
@@ -110,7 +109,7 @@ $result = $stmt->get_result();
             data: {
                 labels: labels,
                 datasets: [{
-                    label: 'Total de Funcionários por Faixa Etária',
+                    label: 'Total de Usuários por Faixa Etária',
                     data: dataValues,
                     borderWidth: 1,
                     backgroundColor: '#4BC0C0',
@@ -126,7 +125,7 @@ $result = $stmt->get_result();
                 plugins: {
                     title: {
                         display: true,
-                        text: 'Total de Funcionários por Faixa Etária'
+                        text: 'Total de Usuários por Faixa Etária'
                     }
                 }
             }

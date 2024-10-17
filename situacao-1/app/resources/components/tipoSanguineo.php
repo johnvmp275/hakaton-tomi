@@ -60,7 +60,7 @@ $jsonData = json_encode(array_values($totalAtendimentos));
 
 
 <div>
-    <canvas id="tipoSanguineo" style="height: 360px; max-width: 100%; margin: 50px 0 0 50px;"></canvas>
+    <canvas id="tipoSanguineo" style="height: 360px; max-width: 600px;"></canvas>
 </div>
 
 <script>
