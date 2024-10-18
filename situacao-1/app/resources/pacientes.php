@@ -48,7 +48,7 @@ $result = $stmt->get_result();
             <tr>
                 <th>Nome</th>
                 <th>Nascimento</th>
-                <th>Gênero</th>
+                <th>Sexo</th>
                 <th>Documento</th>
                 <th>Contato</th>
                 <th>Ocupação</th>

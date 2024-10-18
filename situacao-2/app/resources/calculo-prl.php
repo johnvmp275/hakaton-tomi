@@ -65,22 +65,27 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <div class="container">
     <h1 class="titulo">Calculadora de PLR</h1>
     <form method="post" action="" class="form-group">
-        <label for="funcionario">Funcionário: </label>
-        <select id="lista-funcionarios" name="funcionario">
-            <?php
-            // Selecionar funcionário
-            $sql = "SELECT id, nome FROM funcionarios";
-            $result = $conn->query($sql);
-            // Loop para exibir cada funcionário na lista de opções
-            if ($result->num_rows > 0) {
-                while ($row = $result->fetch_assoc()) {
-                    echo "<option value='" . htmlspecialchars($row['nome']) . "'>" . htmlspecialchars($row['nome']) . "</option>";
+        <div class="form-group">
+            <label for="">
+                Funcionário
+            </label>
+            <input class="form-control" type="text" id="funcionario" name="funcionario" list="lista-funcionarios" required value="<?php echo htmlspecialchars($funcionarioNome); ?>">
+            <datalist class="form-control" id="lista-funcionarios">
+                <?php
+                // Selecionar funcionário
+                $sql = "SELECT id, nome FROM funcionarios";
+                $result = $conn->query($sql);
+                // Loop para exibir cada funcionário na lista de opções
+                if ($result->num_rows > 0) {
+                    while ($row = $result->fetch_assoc()) {
+                        echo "<option value='" . htmlspecialchars($row['nome']) . "'>" . $row['id'] . "</option>";
+                    }
+                } else {
+                    echo "<option value=''>Nenhum funcionário encontrado</option>";
                 }
-            } else {
-                echo "<option value=''>Nenhum funcionário encontrado</option>";
-            }
-            ?>
-        </select>
+                ?>
+            </datalist>
+        </div>
 
         <div class="form-group">
             <label for="porcentagem">Porcentagem da PLR (%): </label>

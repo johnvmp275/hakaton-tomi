@@ -60,7 +60,7 @@ $conn->close();
 
 
     <div class="form-group" style="max-height: 360px; max-width: 450px; margin-bottom: 100px;">
-        <label for="" class="subtitle titulo">Atendimentos por Gênero:</label>
+        <label for="" class="subtitle titulo">Atendimentos por Sexo:</label>
         <canvas id="generoGrafico" style="margin-left:40px"></canvas>
     </div>
 
@@ -74,7 +74,7 @@ $conn->close();
                 data: {
                     labels: ["Feminino", "Masculino", "Outros"],
                     datasets: [{
-                        label: "Atendimentos por Gênero",
+                        label: "Atendimentos por Sexo",
                         data: [<?= $feminino_count ?>, <?= $masculino_count ?>, <?= $outros_count ?>],
                         backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56'],
                         borderWidth: 1,

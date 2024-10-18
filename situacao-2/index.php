@@ -56,6 +56,11 @@ $tituloPagina = ucfirst(str_replace('-', ' ', $rota));
   <aside>
     <nav class="navbar">
       <ul class="nav-menu itens-menu">
+      <li class="nav-item">
+          <a href="/" class="nav-link">
+            <h1 style="font-size:40px; margin: 0 auto;">BLAN</h1>
+          </a>
+        </li>
         <li class="nav-item">
           <a href="/dashboard" class="nav-link"><span class="material-symbols-outlined">
               dashboard

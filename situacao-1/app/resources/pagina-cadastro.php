@@ -87,12 +87,19 @@ $conn->close();
         <div style="color: green;"><?php echo $sucesso; ?></div>
     <?php endif; ?>
 
+    <div class="form-gruop">
+        <label for="documento">Documento (RG ou SUS) *</label>
+        <input type="text" id="documento" name="documento" required value="" pattern="[0-9]+">
+    </div>
+    
     <div class="form-double">
-        <div class="form-gruop">
 
+
+        <div class="form-gruop">
             <label for="nomePaciente">Nome Completo *</label>
             <input type="text" id="nomePaciente" name="nomePaciente" required value="">
         </div>
+
         <div class="form-gruop">
             <label for="dataNasc">Data de Nascimento *</label>
             <input type="date" id="dataNasc" name="dataNasc" required value="">
@@ -106,7 +113,7 @@ $conn->close();
 
     <div class="form-double">
         <div class="form-gruop">
-            <label for="genero">Gênero *</label>
+            <label for="genero">Sexo *</label>
             <select id="genero" name="genero" required>
                 <option value="">Selecione</option>
                 <option value="Masculino">Masculino</option>
@@ -130,11 +137,6 @@ $conn->close();
     <div class="form-gruop">
         <label for="contato">Contato (Telefone ou Email)</label>
         <input type="text" id="contato" name="contato" value="">
-    </div>
-
-    <div class="form-gruop">
-        <label for="documento">Documento (RG ou SUS) *</label>
-        <input type="text" id="documento" name="documento" required value="" pattern="[0-9]+">
     </div>
 
     <div class="form-gruop">
